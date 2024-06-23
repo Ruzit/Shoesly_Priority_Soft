@@ -1,21 +1,45 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:shoesly_priority_soft/config/app_theme.dart';
+import 'package:shoesly_priority_soft/core/routes/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shoesly',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: AppTheme.lightTheme,
+      home: const SizedBox(),
+      builder: (context, child) {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.portraitUp,
+          DeviceOrientation.portraitDown,
+        ]);
+        return FlutterEasyLoading(
+          child: MaterialApp.router(
+            // scaffoldMessengerKey: snackbarMessanger,
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.lightTheme,
+            themeMode: ThemeMode.light,
+            routeInformationParser: _appRouter.defaultRouteParser(),
+            routerDelegate: AutoRouterDelegate(
+              _appRouter,
+            ),
+          ),
+        );
+      },
     );
   }
 }
