@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color colorBorder = Color(0xff454545);
+const Color colorBorder = Color(0xffe7e7e7);
 const Color colorAccent = Color(0xFFEF5B2C);
 const Color colorBackground = Color(0xFFE5E5E5);
 
@@ -25,6 +25,7 @@ const LinearGradient linearGradient = LinearGradient(
 const blackColor = Colors.black;
 final borderColor = Colors.grey[200]!;
 const waringColor = Color(0xffFF4C5E);
+const Color colorDarkGrey = Color(0xff6f6f6f);
 const Color productTileColor = Color(0xffB7B7B7);
 const Color lightText = Color(0xff666666);
 const Color starColor = Color(0xffFCD240);

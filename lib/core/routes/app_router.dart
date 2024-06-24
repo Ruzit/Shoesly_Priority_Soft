@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:shoesly_priority_soft/features/products/presentation/pages/product_detail_page.dart';
 import 'package:shoesly_priority_soft/features/splash_screen/splash_page.dart';
 
-import '../../features/dashboard/presentation/pages/dashboard_page.dart';
+import '../../features/products/presentation/pages/dashboard_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -19,6 +20,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: DashboardRouter.page,
+        ),
+        AutoRoute(
+          page: ProductDetailRouter.page,
         ),
       ];
 }

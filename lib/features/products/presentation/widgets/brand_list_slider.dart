@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 
-class BrandListWidget extends StatelessWidget {
-  const BrandListWidget({
+class BrandListSlider extends StatelessWidget {
+  const BrandListSlider({
     super.key,
   });
 
@@ -15,7 +16,10 @@ class BrandListWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Text(
               'Item',
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: productTileColor,
+                  ),
             ),
           );
         },

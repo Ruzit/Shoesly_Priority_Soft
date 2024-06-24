@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DashboardPage(),
       );
     },
+    ProductDetailRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProductDetailPage(),
+      );
+    },
     SplashRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -40,6 +46,20 @@ class DashboardRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'DashboardRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProductDetailPage]
+class ProductDetailRouter extends PageRouteInfo<void> {
+  const ProductDetailRouter({List<PageRouteInfo>? children})
+      : super(
+          ProductDetailRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductDetailRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
