@@ -54,6 +54,14 @@ dev_dependencies:
   injectable_generator: ^2.6.1
   json_serializable: ^6.8.0
 
+flutter_gen:
+
+  integrations:
+    flutter_svg: true
+    # flare_flutter: true
+    # rive: true
+    # lottie: true
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.

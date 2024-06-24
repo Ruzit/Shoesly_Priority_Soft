@@ -8,6 +8,9 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -96,40 +99,40 @@ class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   /// File path: assets/icons/adidas.svg
-  String get adidas => 'assets/icons/adidas.svg';
+  SvgGenImage get adidas => const SvgGenImage('assets/icons/adidas.svg');
 
   /// File path: assets/icons/arrow_left.svg
-  String get arrowLeft => 'assets/icons/arrow_left.svg';
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
 
   /// File path: assets/icons/bag.svg
-  String get bag => 'assets/icons/bag.svg';
+  SvgGenImage get bag => const SvgGenImage('assets/icons/bag.svg');
 
   /// File path: assets/icons/filter.svg
-  String get filter => 'assets/icons/filter.svg';
+  SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
 
   /// File path: assets/icons/jordan.svg
-  String get jordan => 'assets/icons/jordan.svg';
+  SvgGenImage get jordan => const SvgGenImage('assets/icons/jordan.svg');
 
   /// File path: assets/icons/nike.svg
-  String get nike => 'assets/icons/nike.svg';
+  SvgGenImage get nike => const SvgGenImage('assets/icons/nike.svg');
 
   /// File path: assets/icons/puma.svg
-  String get puma => 'assets/icons/puma.svg';
+  SvgGenImage get puma => const SvgGenImage('assets/icons/puma.svg');
 
   /// File path: assets/icons/reebok.svg
-  String get reebok => 'assets/icons/reebok.svg';
+  SvgGenImage get reebok => const SvgGenImage('assets/icons/reebok.svg');
 
   /// File path: assets/icons/star.svg
-  String get star => 'assets/icons/star.svg';
+  SvgGenImage get star => const SvgGenImage('assets/icons/star.svg');
 
   /// File path: assets/icons/trash.svg
-  String get trash => 'assets/icons/trash.svg';
+  SvgGenImage get trash => const SvgGenImage('assets/icons/trash.svg');
 
   /// File path: assets/icons/vans.svg
-  String get vans => 'assets/icons/vans.svg';
+  SvgGenImage get vans => const SvgGenImage('assets/icons/vans.svg');
 
   /// List of all assets
-  List<String> get values => [
+  List<SvgGenImage> get values => [
         adidas,
         arrowLeft,
         bag,
@@ -264,6 +267,71 @@ class AssetGenImage {
       _assetName,
       bundle: bundle,
       package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class SvgGenImage {
+  const SvgGenImage(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = false;
+
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = true;
+
+  final String _assetName;
+
+  final Size? size;
+  final bool _isVecFormat;
+
+  SvgPicture svg({
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    AlignmentGeometry alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    WidgetBuilder? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    SvgTheme? theme,
+    ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated bool cacheColorFilter = false,
+  }) {
+    return SvgPicture(
+      _isVecFormat
+          ? AssetBytesLoader(_assetName,
+              assetBundle: bundle, packageName: package)
+          : SvgAssetLoader(_assetName,
+              assetBundle: bundle, packageName: package),
+      key: key,
+      matchTextDirection: matchTextDirection,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      placeholderBuilder: placeholderBuilder,
+      semanticsLabel: semanticsLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      theme: theme,
+      colorFilter: colorFilter ??
+          (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
+      clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
     );
   }
 

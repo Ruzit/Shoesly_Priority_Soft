@@ -57,32 +57,32 @@ class AppTheme {
           borderSide: const BorderSide(color: colorBorder, width: 1),
           borderRadius: BorderRadius.circular(8)),
     ),
-    textTheme: const TextTheme(
-      displaySmall: TextStyle(
-          fontSize: 46,
-          color: Colors.white,
-          letterSpacing: -2,
-          fontWeight: FontWeight.w300),
-      titleLarge: TextStyle(
-          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700),
-      titleSmall: TextStyle(color: Colors.grey, fontSize: 14),
-      titleMedium: TextStyle(
-          color: AppColors.blackColor,
-          fontSize: 16,
-          fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(
-          fontSize: 22,
-          color: AppColors.blackColor,
-          fontWeight: FontWeight.w700),
-      displayMedium: TextStyle(),
-      headlineMedium: TextStyle(
-          fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFF191919)),
-      bodyMedium: TextStyle(fontSize: 16, color: Colors.black),
-      headlineSmall: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 22,
-      ),
-    ),
+    // textTheme: const TextTheme(
+    //   displaySmall: TextStyle(
+    //       fontSize: 46,
+    //       color: Colors.white,
+    //       letterSpacing: -2,
+    //       fontWeight: FontWeight.w300),
+    //   titleLarge: TextStyle(
+    //       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700),
+    //   titleMedium: TextStyle(
+    //       color: AppColors.blackColor,
+    //       fontSize: 16,
+    //       fontWeight: FontWeight.w700),
+    //   titleSmall: TextStyle(color: Colors.grey, fontSize: 14),
+    //   displayMedium: TextStyle(),
+    //   bodyLarge: TextStyle(
+    //       fontSize: 22,
+    //       color: AppColors.blackColor,
+    //       fontWeight: FontWeight.w700),
+    //   bodyMedium: TextStyle(fontSize: 16, color: Colors.black),
+    //   headlineSmall: TextStyle(
+    //     fontWeight: FontWeight.bold,
+    //     fontSize: 22,
+    //   ),
+    //   headlineMedium: TextStyle(
+    //       fontSize: 24, fontWeight: FontWeight.w600, color: Color(0xFF191919)),
+    // ),
     bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.white),
   );
 }
