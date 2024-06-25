@@ -76,7 +76,7 @@ class ProductDetailPage extends StatelessWidget {
             const ProductDescriptionWidget(),
             verticalSpace(space: 16.0),
             const ProductReviewWidget(),
-            verticalSpace(space: 16.0),
+            verticalSpace(space: 80.0),
           ],
         ).padding(horizontal: 24),
       ),

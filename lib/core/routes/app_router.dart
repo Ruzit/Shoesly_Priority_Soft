@@ -3,6 +3,7 @@ import 'package:shoesly_priority_soft/features/products/presentation/pages/produ
 import 'package:shoesly_priority_soft/features/splash_screen/splash_page.dart';
 
 import '../../features/products/presentation/pages/dashboard_page.dart';
+import '../../features/products/presentation/pages/product_filter_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -23,6 +24,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: ProductDetailRouter.page,
+        ),
+        AutoRoute(
+          page: ProductFilterRouter.page,
         ),
       ];
 }

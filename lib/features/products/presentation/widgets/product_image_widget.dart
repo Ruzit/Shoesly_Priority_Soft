@@ -60,7 +60,7 @@ class _ProductImageWidgetState extends State<ProductImageWidget> {
                 _current = index;
               }),
               enableInfiniteScroll: true,
-              autoPlay: true,
+              // autoPlay: true,
             ),
           ).expanded(),
           verticalSpace(space: 8.0),

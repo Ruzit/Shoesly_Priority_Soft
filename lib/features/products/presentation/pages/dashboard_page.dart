@@ -5,6 +5,7 @@ import 'package:shoesly_priority_soft/features/products/presentation/widgets/pro
 import 'package:shoesly_priority_soft/gen/assets.gen.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import '../../../../core/routes/app_router.dart';
 import '../widgets/brand_list_slider.dart';
 
 @RoutePage(name: 'DashboardRouter')
@@ -35,7 +36,7 @@ class DashboardPage extends StatelessWidget {
       ),
       fabLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () => context.router.push(const ProductFilterRouter()),
         label: Text(
           'FILTER',
           style: Theme.of(context)

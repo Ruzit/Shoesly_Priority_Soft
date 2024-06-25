@@ -64,7 +64,7 @@ class AppBaseView extends StatelessWidget {
           bottomWidget != null
               ? 140.0
               : titleText != null
-                  ? 60.0
+                  ? 70.0
                   : 0.0,
         ),
         child: AppBar(

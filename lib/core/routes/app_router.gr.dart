@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProductDetailPage(),
       );
     },
+    ProductFilterRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProductFilterPage(),
+      );
+    },
     SplashRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -60,6 +66,20 @@ class ProductDetailRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProductDetailRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProductFilterPage]
+class ProductFilterRouter extends PageRouteInfo<void> {
+  const ProductFilterRouter({List<PageRouteInfo>? children})
+      : super(
+          ProductFilterRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductFilterRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

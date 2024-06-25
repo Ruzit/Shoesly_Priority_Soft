@@ -15,7 +15,7 @@ class ProductDescriptionWidget extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .titleMedium
-              ?.copyWith(fontWeight: FontWeight.w400),
+              ?.copyWith(fontWeight: FontWeight.w600),
         ),
         verticalSpace(space: 4.0),
         Text(
