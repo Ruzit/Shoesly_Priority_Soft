@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 enum ButtonWidth { large, small }
@@ -27,12 +28,14 @@ class AppButton extends StatelessWidget {
     this.duration = const Duration(seconds: 5),
     this.leadingWidget,
     this.width,
-    this.height = 45,
+    this.height = 50,
     this.fontStyle = const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.5,
-        overflow: TextOverflow.ellipsis),
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: blackColor,
+      letterSpacing: 0.5,
+      overflow: TextOverflow.ellipsis,
+    ),
     this.backgroundColor,
     this.outlinedBorder = const StadiumBorder(),
     this.backgroundGradient,

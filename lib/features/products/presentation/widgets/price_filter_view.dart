@@ -52,8 +52,6 @@ class _PriceFilterViewState extends State<PriceFilterView> {
             endThumbIcon: thumbWidget(),
             values: values,
             onChanged: (range) {},
-            showTicks: true,
-            showDividers: true,
             tooltipShape: const SfRectangularTooltipShape(),
             tooltipTextFormatterCallback: (actualValue, formattedText) =>
                 '\$ $formattedText',

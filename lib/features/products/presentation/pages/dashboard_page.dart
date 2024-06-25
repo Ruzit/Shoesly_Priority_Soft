@@ -29,7 +29,7 @@ class DashboardPage extends StatelessWidget {
         scrolledUnderElevation: 0.0,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.router.push(const CartPageRouter()),
             icon: Assets.icons.bag.svg(),
           ),
         ],

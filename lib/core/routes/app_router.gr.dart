@@ -15,10 +15,22 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CartPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CartPage(),
+      );
+    },
     DashboardRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DashboardPage(),
+      );
+    },
+    OrderSummaryPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OrderSummaryPage(),
       );
     },
     ProductDetailRouter.name: (routeData) {
@@ -33,6 +45,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProductFilterPage(),
       );
     },
+    ReviewPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ReviewPage(),
+      );
+    },
     SplashRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -40,6 +58,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CartPage]
+class CartPageRouter extends PageRouteInfo<void> {
+  const CartPageRouter({List<PageRouteInfo>? children})
+      : super(
+          CartPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CartPageRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -52,6 +84,20 @@ class DashboardRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'DashboardRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OrderSummaryPage]
+class OrderSummaryPageRouter extends PageRouteInfo<void> {
+  const OrderSummaryPageRouter({List<PageRouteInfo>? children})
+      : super(
+          OrderSummaryPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderSummaryPageRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -80,6 +126,20 @@ class ProductFilterRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProductFilterRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReviewPage]
+class ReviewPageRouter extends PageRouteInfo<void> {
+  const ReviewPageRouter({List<PageRouteInfo>? children})
+      : super(
+          ReviewPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewPageRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

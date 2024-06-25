@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
+import 'package:shoesly_priority_soft/features/cart/presentation/widgets/total_price_and_button_widget.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/widgets/product_description_widget.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/widgets/product_image_widget.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/widgets/product_info_widget.dart';
@@ -9,60 +10,69 @@ import 'package:shoesly_priority_soft/features/products/presentation/widgets/pro
 import 'package:shoesly_priority_soft/gen/assets.gen.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/widgets/app_button.dart';
+import '../../../../core/routes/app_router.dart';
+import '../../../cart/presentation/widgets/add_to_cart_bottom_sheet.dart';
+import '../../../cart/presentation/widgets/add_to_cart_success_bottom_sheet.dart';
 import '../widgets/product_review_widget.dart';
 
 @RoutePage(name: 'ProductDetailRouter')
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key});
 
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     return AppBaseView(
       titleText: '',
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () => context.router.push(const CartPageRouter()),
           icon: Assets.icons.bag.svg(),
         ),
       ],
       appBarColor: const Color(0xfff9f9f9),
       color: const Color(0xfff9f9f9),
-      bottomSheet: Row(
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Price',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: productTileColor),
+      bottomNavigationBar: TotalPriceAndButtonWidget(
+        buttonText: 'ADD TO CART',
+        title: 'Price',
+        price: '\$235.00',
+        onButtonPressed: () async {
+          final count = await showModalBottomSheet(
+            showDragHandle: true,
+            isScrollControlled: true,
+            context: context,
+            builder: (_) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: const AddToCartBottomSheet(),
               ),
-              Text(
-                '\$235.00',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall
-                    ?.copyWith(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-            ],
-          ).expanded(),
-          AppButton(
-            buttonText: 'ADD TO CART',
-            fontStyle: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-            onPressed: () {},
-            width: MediaQuery.of(context).size.width * 0.4,
-            backgroundColor: blackColor,
-          ),
-        ],
-      ).padding(horizontal: 16).decorated(color: Colors.white),
+            ),
+          );
+          if (count != null) {
+            if (mounted) {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                // ignore: use_build_context_synchronously
+                context: context,
+                builder: (_) => SingleChildScrollView(
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom,
+                    ),
+                    child: const AddToCartSuccessBottomSheet(),
+                  ),
+                ),
+              );
+            }
+          }
+        },
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,8 +85,8 @@ class ProductDetailPage extends StatelessWidget {
             verticalSpace(space: 16.0),
             const ProductDescriptionWidget(),
             verticalSpace(space: 16.0),
-            const ProductReviewWidget(),
-            verticalSpace(space: 80.0),
+            const ProductTopReviewsWidget(),
+            verticalSpace(space: 16.0),
           ],
         ).padding(horizontal: 24),
       ),

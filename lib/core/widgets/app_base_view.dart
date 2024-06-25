@@ -77,7 +77,11 @@ class AppBaseView extends StatelessWidget {
           scrolledUnderElevation: 0.0,
           title: Text(
             titleText ?? '',
-            style: titleStyle,
+            style: titleStyle ??
+                Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontWeight: FontWeight.w600),
           ),
           bottom: bottomWidget,
         ),

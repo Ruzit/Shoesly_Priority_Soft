@@ -22,7 +22,7 @@ class ProductFilterPage extends StatelessWidget {
     return AppBaseView(
       titleText: 'Filter',
       centerTitle: true,
-      bottomSheet: Row(
+      bottomNavigationBar: Row(
         children: <Widget>[
           AppButton(
             buttonText: 'RESET (4)',
