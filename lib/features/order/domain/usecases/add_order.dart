@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:shoesly_priority_soft/features/order/domain/repository/order_repository.dart';
 
 import '../../../../core/model/base_response.dart';
 import '../../data/models/add_order_request.dart';
 
+@injectable
 class AddOrder {
   final IOrderRepository _orderRepository;
 

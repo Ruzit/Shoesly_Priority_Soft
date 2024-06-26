@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -19,15 +21,30 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   final GetCartItems _getCartItems;
   final DeleteCartItem _deleteCartItem;
   final UpdateCartItem _updateCartItem;
+  final FirebaseAuth auth;
 
   CartBloc(this._addToCart, this._getCartItems, this._deleteCartItem,
-      this._updateCartItem)
+      this._updateCartItem, this.auth)
       : super(const _Initial()) {
     on<CartEvent>((event, emit) async {
+      String? userId = auth.currentUser?.uid;
+      if (userId == null) {
+        try {
+          final newUser = await auth.signInAnonymously();
+          userId = newUser.user?.uid;
+        } catch (e) {
+          debugPrint(e.toString());
+        }
+      }
+      if (userId == null) {
+        emit(const CartState.error(errorMsg: "Unable to create user"));
+        return;
+      }
       await event.whenOrNull(
-        getCartItems: (userId) async {
+        getCartItems: () async {
           emit(const CartState.loading());
-          final response = await _getCartItems(userId);
+
+          final response = await _getCartItems(userId!);
           if (response.success) {
             emit(CartState.getCartItemssuccess(cartItems: response.data!));
           } else {

@@ -1,5 +1,7 @@
+import 'package:injectable/injectable.dart';
 import 'package:shoesly_priority_soft/features/cart/domain/repository/cart_repository.dart';
 
+@injectable
 class UpdateCartItem {
   final ICartRepository _cartRepository;
 

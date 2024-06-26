@@ -31,7 +31,7 @@ class ProductFilter {
     return count;
   }
 
-  static int perPag = 10;
+  static int perPage = 10;
 }
 
 class PriceRange {

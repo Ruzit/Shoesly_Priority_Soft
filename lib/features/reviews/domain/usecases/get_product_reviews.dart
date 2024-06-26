@@ -1,8 +1,11 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/model/base_response.dart';
 import '../../data/models/review_filter.dart';
 import '../../data/models/review_model.dart';
 import '../repository/review_repository.dart';
 
+@injectable
 class GetProductReviews {
   final IReviewRepository _reviewRepository;
 

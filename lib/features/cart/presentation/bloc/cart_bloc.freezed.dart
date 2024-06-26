@@ -22,7 +22,7 @@ mixin _$CartEvent {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$CartEvent {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$CartEvent {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) {
     return started();
   }
@@ -145,7 +145,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) {
     return started?.call();
   }
@@ -157,7 +157,7 @@ class _$StartedImpl implements _Started {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -279,7 +279,7 @@ class _$AddToCartImpl implements _AddToCart {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) {
     return addToCart(request);
   }
@@ -291,7 +291,7 @@ class _$AddToCartImpl implements _AddToCart {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) {
     return addToCart?.call(request);
   }
@@ -303,7 +303,7 @@ class _$AddToCartImpl implements _AddToCart {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -432,7 +432,7 @@ class _$DeleteCartItemsImpl implements _DeleteCartItems {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) {
     return deleteCartItem(itemId);
   }
@@ -444,7 +444,7 @@ class _$DeleteCartItemsImpl implements _DeleteCartItems {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) {
     return deleteCartItem?.call(itemId);
   }
@@ -456,7 +456,7 @@ class _$DeleteCartItemsImpl implements _DeleteCartItems {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) {
     if (deleteCartItem != null) {
@@ -593,7 +593,7 @@ class _$UpdateCartItemsImpl implements _UpdateCartItems {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) {
     return updateCartItem(itemId, quantity);
   }
@@ -605,7 +605,7 @@ class _$UpdateCartItemsImpl implements _UpdateCartItems {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) {
     return updateCartItem?.call(itemId, quantity);
   }
@@ -617,7 +617,7 @@ class _$UpdateCartItemsImpl implements _UpdateCartItems {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) {
     if (updateCartItem != null) {
@@ -683,8 +683,6 @@ abstract class _$$GetCartItemsImplCopyWith<$Res> {
   factory _$$GetCartItemsImplCopyWith(
           _$GetCartItemsImpl value, $Res Function(_$GetCartItemsImpl) then) =
       __$$GetCartItemsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String userId});
 }
 
 /// @nodoc
@@ -694,50 +692,26 @@ class __$$GetCartItemsImplCopyWithImpl<$Res>
   __$$GetCartItemsImplCopyWithImpl(
       _$GetCartItemsImpl _value, $Res Function(_$GetCartItemsImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$GetCartItemsImpl(
-      null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$GetCartItemsImpl implements _GetCartItems {
-  const _$GetCartItemsImpl(this.userId);
-
-  @override
-  final String userId;
+  const _$GetCartItemsImpl();
 
   @override
   String toString() {
-    return 'CartEvent.getCartItems(userId: $userId)';
+    return 'CartEvent.getCartItems()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCartItemsImpl &&
-            (identical(other.userId, userId) || other.userId == userId));
+        (other.runtimeType == runtimeType && other is _$GetCartItemsImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, userId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetCartItemsImplCopyWith<_$GetCartItemsImpl> get copyWith =>
-      __$$GetCartItemsImplCopyWithImpl<_$GetCartItemsImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -746,9 +720,9 @@ class _$GetCartItemsImpl implements _GetCartItems {
     required TResult Function(AddToCartRequestModel request) addToCart,
     required TResult Function(String itemId) deleteCartItem,
     required TResult Function(String itemId, int quantity) updateCartItem,
-    required TResult Function(String userId) getCartItems,
+    required TResult Function() getCartItems,
   }) {
-    return getCartItems(userId);
+    return getCartItems();
   }
 
   @override
@@ -758,9 +732,9 @@ class _$GetCartItemsImpl implements _GetCartItems {
     TResult? Function(AddToCartRequestModel request)? addToCart,
     TResult? Function(String itemId)? deleteCartItem,
     TResult? Function(String itemId, int quantity)? updateCartItem,
-    TResult? Function(String userId)? getCartItems,
+    TResult? Function()? getCartItems,
   }) {
-    return getCartItems?.call(userId);
+    return getCartItems?.call();
   }
 
   @override
@@ -770,11 +744,11 @@ class _$GetCartItemsImpl implements _GetCartItems {
     TResult Function(AddToCartRequestModel request)? addToCart,
     TResult Function(String itemId)? deleteCartItem,
     TResult Function(String itemId, int quantity)? updateCartItem,
-    TResult Function(String userId)? getCartItems,
+    TResult Function()? getCartItems,
     required TResult orElse(),
   }) {
     if (getCartItems != null) {
-      return getCartItems(userId);
+      return getCartItems();
     }
     return orElse();
   }
@@ -821,12 +795,7 @@ class _$GetCartItemsImpl implements _GetCartItems {
 }
 
 abstract class _GetCartItems implements CartEvent {
-  const factory _GetCartItems(final String userId) = _$GetCartItemsImpl;
-
-  String get userId;
-  @JsonKey(ignore: true)
-  _$$GetCartItemsImplCopyWith<_$GetCartItemsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _GetCartItems() = _$GetCartItemsImpl;
 }
 
 /// @nodoc

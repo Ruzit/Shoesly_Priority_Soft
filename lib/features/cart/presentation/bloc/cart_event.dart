@@ -7,5 +7,5 @@ class CartEvent with _$CartEvent {
   const factory CartEvent.deleteCartItem(String itemId) = _DeleteCartItems;
   const factory CartEvent.updateCartItem(String itemId, int quantity) =
       _UpdateCartItems;
-  const factory CartEvent.getCartItems(String userId) = _GetCartItems;
+  const factory CartEvent.getCartItems() = _GetCartItems;
 }
