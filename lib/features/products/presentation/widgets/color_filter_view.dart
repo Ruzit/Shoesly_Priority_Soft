@@ -6,7 +6,9 @@ import 'package:styled_widget/styled_widget.dart';
 
 class ColorFilterView extends StatefulWidget {
   final ProductColor? color;
-  const ColorFilterView({super.key, this.color});
+  final void Function(ProductColor) onSelected;
+
+  const ColorFilterView({super.key, this.color, required this.onSelected});
 
   @override
   State<ColorFilterView> createState() => _ColorFilterViewState();
@@ -61,6 +63,7 @@ class _ColorFilterViewState extends State<ColorFilterView> {
                         ? Border.all(color: blackColor)
                         : Border.all(color: colorBorder),
                   )
+                  .gestures(onTap: () => widget.onSelected(e))
                   .padding(horizontal: 8);
             },
           ).toList(),

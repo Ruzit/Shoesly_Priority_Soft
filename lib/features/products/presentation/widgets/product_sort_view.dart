@@ -6,7 +6,9 @@ import 'package:styled_widget/styled_widget.dart';
 
 class ProductSortView extends StatelessWidget {
   final ProductSort? productSort;
-  const ProductSortView({super.key, this.productSort});
+  final void Function(ProductSort sort) onSelected;
+  const ProductSortView(
+      {super.key, this.productSort, required this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class ProductSortView extends StatelessWidget {
                   color: isSelected ? blackColor : null,
                   border: isSelected ? null : Border.all(color: colorBorder),
                 )
+                .gestures(onTap: () => onSelected(e))
                 .padding(horizontal: 8);
           }).toList(),
         ).height(45),

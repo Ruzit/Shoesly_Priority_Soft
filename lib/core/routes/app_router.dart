@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../features/cart/data/models/cart_model.dart';
 import '../../features/cart/presentation/pages/cart_page.dart';
 import '../../features/order/presentation/pages/order_summary_page.dart';
+import '../../features/products/data/models/product_filter.dart';
 import '../../features/products/data/models/product_model.dart';
 import '../../features/products/presentation/pages/dashboard_page.dart';
 import '../../features/products/presentation/pages/product_detail_page.dart';

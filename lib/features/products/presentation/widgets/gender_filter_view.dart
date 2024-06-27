@@ -6,7 +6,8 @@ import 'package:styled_widget/styled_widget.dart';
 
 class GenderFilterView extends StatelessWidget {
   final Gender? gender;
-  const GenderFilterView({super.key, this.gender});
+  final void Function(Gender) onSelected;
+  const GenderFilterView({super.key, this.gender, required this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class GenderFilterView extends StatelessWidget {
                     color: isSelected ? blackColor : null,
                     border: isSelected ? null : Border.all(color: colorBorder),
                   )
+                  .gestures(onTap: () => onSelected(e))
                   .padding(horizontal: 8);
             },
           ).toList(),

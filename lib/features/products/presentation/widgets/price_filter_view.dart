@@ -4,9 +4,12 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/spacing_utils.dart';
+import '../../data/models/product_filter.dart';
 
 class PriceFilterView extends StatefulWidget {
-  const PriceFilterView({super.key});
+  final void Function(PriceRange) onChanged;
+  final PriceRange? priceRange;
+  const PriceFilterView({super.key, required this.onChanged, this.priceRange});
 
   @override
   State<PriceFilterView> createState() => _PriceFilterViewState();
@@ -25,7 +28,8 @@ class _PriceFilterViewState extends State<PriceFilterView> {
 
   @override
   Widget build(BuildContext context) {
-    const values = SfRangeValues(100, 1750);
+    final values = SfRangeValues(
+        widget.priceRange?.min ?? 10, widget.priceRange?.max ?? 1750);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -51,7 +55,9 @@ class _PriceFilterViewState extends State<PriceFilterView> {
             startThumbIcon: thumbWidget(),
             endThumbIcon: thumbWidget(),
             values: values,
-            onChanged: (range) {},
+            onChanged: (range) {
+              widget.onChanged(PriceRange(min: range.start, max: range.end));
+            },
             tooltipShape: const SfRectangularTooltipShape(),
             tooltipTextFormatterCallback: (actualValue, formattedText) =>
                 '\$ $formattedText',

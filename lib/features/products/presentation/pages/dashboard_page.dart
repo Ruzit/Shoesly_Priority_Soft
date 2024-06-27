@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
 import 'package:shoesly_priority_soft/features/brand/presentation/bloc/brand_bloc.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/bloc/product_bloc.dart';
@@ -55,7 +56,19 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       fabLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.router.push(const ProductFilterRouter()),
+        onPressed: () async {
+          final value = await context.router.push(ProductFilterRouter(
+            filter: filter,
+          ));
+
+          if (value is ProductFilter) {
+            filter = value;
+            selectedBrand = value.brand;
+            setState(() {});
+
+            productBloc.add(ProductEvent.getProductList(filter: filter));
+          }
+        },
         label: Text(
           'FILTER',
           style: Theme.of(context)
@@ -63,8 +76,22 @@ class _DashboardPageState extends State<DashboardPage> {
               .titleMedium
               ?.copyWith(color: Colors.white),
         ),
-        icon: Assets.icons.filter.svg(
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        icon: Stack(
+          children: [
+            Assets.icons.filter.svg(
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            ),
+            if (filter.appliedCount > 0)
+              const Positioned(
+                right: 0,
+                top: 0,
+                child: CircleAvatar(
+                  radius: 5,
+                  backgroundColor: waringColor,
+                ),
+              )
+          ],
         ),
         backgroundColor: Colors.black,
         extendedPadding: const EdgeInsets.symmetric(horizontal: 22),

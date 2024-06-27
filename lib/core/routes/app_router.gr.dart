@@ -48,9 +48,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ProductFilterRouter.name: (routeData) {
+      final args = routeData.argsAs<ProductFilterRouterArgs>(
+          orElse: () => const ProductFilterRouterArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProductFilterPage(),
+        child: ProductFilterPage(
+          key: args.key,
+          filter: args.filter,
+        ),
       );
     },
     ReviewPageRouter.name: (routeData) {
@@ -178,16 +183,40 @@ class ProductDetailRouterArgs {
 
 /// generated route for
 /// [ProductFilterPage]
-class ProductFilterRouter extends PageRouteInfo<void> {
-  const ProductFilterRouter({List<PageRouteInfo>? children})
-      : super(
+class ProductFilterRouter extends PageRouteInfo<ProductFilterRouterArgs> {
+  ProductFilterRouter({
+    Key? key,
+    ProductFilter? filter,
+    List<PageRouteInfo>? children,
+  }) : super(
           ProductFilterRouter.name,
+          args: ProductFilterRouterArgs(
+            key: key,
+            filter: filter,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ProductFilterRouter';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ProductFilterRouterArgs> page =
+      PageInfo<ProductFilterRouterArgs>(name);
+}
+
+class ProductFilterRouterArgs {
+  const ProductFilterRouterArgs({
+    this.key,
+    this.filter,
+  });
+
+  final Key? key;
+
+  final ProductFilter? filter;
+
+  @override
+  String toString() {
+    return 'ProductFilterRouterArgs{key: $key, filter: $filter}';
+  }
 }
 
 /// generated route for
