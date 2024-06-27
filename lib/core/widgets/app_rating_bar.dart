@@ -25,8 +25,8 @@ class AppRatingBar extends StatelessWidget {
         full: Assets.icons.star.svg(),
         half: Assets.icons.star.svg(),
         empty: Assets.icons.star.svg(
-            colorFilter: const ColorFilter.mode(
-          colorLightGrey,
+            colorFilter: ColorFilter.mode(
+          borderColor,
           BlendMode.srcIn,
         )),
       ),

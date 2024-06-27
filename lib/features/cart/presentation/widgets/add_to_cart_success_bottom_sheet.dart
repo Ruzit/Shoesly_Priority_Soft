@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly_priority_soft/core/routes/app_router.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_button.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../bloc/cart_bloc.dart';
 
 class AddToCartSuccessBottomSheet extends StatelessWidget {
   const AddToCartSuccessBottomSheet({super.key});
@@ -48,9 +50,13 @@ class AddToCartSuccessBottomSheet extends StatelessWidget {
                 .bodyLarge
                 ?.copyWith(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          Text(
-            "2 item total",
-            style: Theme.of(context).textTheme.bodyMedium,
+          BlocBuilder<CartBloc, CartState>(
+            builder: (context, state) {
+              return state.whenOrNull(getCartItemssuccess: (carts) {
+                    return Text("${carts.length} item total");
+                  }) ??
+                  const SizedBox();
+            },
           ),
           const SizedBox(
             height: 06,

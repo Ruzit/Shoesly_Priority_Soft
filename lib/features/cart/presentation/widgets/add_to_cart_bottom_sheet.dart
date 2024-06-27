@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 import 'package:shoesly_priority_soft/features/cart/presentation/widgets/cart_quantity_button.dart';
 import 'package:shoesly_priority_soft/features/cart/presentation/widgets/total_price_and_button_widget.dart';
+import 'package:shoesly_priority_soft/features/products/data/models/product_model.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
 class AddToCartBottomSheet extends StatefulWidget {
-  const AddToCartBottomSheet({super.key});
+  final ProductModel product;
+  const AddToCartBottomSheet({super.key, required this.product});
 
   @override
   State<AddToCartBottomSheet> createState() => _AddToCartBottomSheetState();
@@ -122,7 +124,7 @@ class _AddToCartBottomSheetState extends State<AddToCartBottomSheet> {
             TotalPriceAndButtonWidget(
               buttonText: 'ADD TO CART',
               title: 'Total Price',
-              price: '\$235.00',
+              price: "\$${widget.product.price * quantity}",
               onButtonPressed: () {
                 context.maybePop(quantity);
               },

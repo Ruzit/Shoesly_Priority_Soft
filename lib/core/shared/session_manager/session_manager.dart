@@ -6,10 +6,10 @@ import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shoesly_priority_soft/core/utils/i_session_manager.dart';
+import 'package:shoesly_priority_soft/core/shared/session_manager/i_session_manager.dart';
 
-import '../constants/super_keys.dart';
-import '../model/user_model.dart';
+import '../../constants/super_keys.dart';
+import '../../model/user_model.dart';
 
 @Injectable(as: ISessionManager)
 class SessionManager implements ISessionManager {

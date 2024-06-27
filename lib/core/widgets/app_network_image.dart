@@ -7,13 +7,14 @@ class AppNetworkImage extends StatelessWidget {
   final double? width;
   final BoxFit? boxFit;
   final Color? color;
-  const AppNetworkImage(
-      {super.key,
-      required this.url,
-      this.height,
-      this.width,
-      this.boxFit,
-      this.color});
+  const AppNetworkImage({
+    super.key,
+    required this.url,
+    this.height,
+    this.width,
+    this.boxFit,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,10 @@ class AppNetworkImage extends StatelessWidget {
       width: width,
       color: color,
       placeholder: (context, url) => const SizedBox(
-          width: 40, height: 40, child: CupertinoActivityIndicator()),
+        width: 40,
+        height: 40,
+        child: CupertinoActivityIndicator(),
+      ),
       errorWidget: (context, url, error) => const SizedBox(),
       fit: boxFit,
     );

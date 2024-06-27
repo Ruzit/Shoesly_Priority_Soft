@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_network_image.dart';
@@ -8,49 +7,27 @@ import 'package:shoesly_priority_soft/features/products/data/models/product_mode
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/firestore_collection.dart';
 import '../../../../core/routes/app_router.dart';
-import '../../../../core/utils/firebase_config.dart';
 import '../../../../core/utils/spacing_utils.dart';
 import '../../../../gen/assets.gen.dart';
 
 class ProductTile extends StatefulWidget {
   final ProductModel product;
-  const ProductTile({super.key, required this.product});
+  final BrandModel brand;
+  const ProductTile({super.key, required this.product, required this.brand});
 
   @override
   State<ProductTile> createState() => _ProductTileState();
 }
 
 class _ProductTileState extends State<ProductTile> {
-  BrandModel? brandModel;
-
-  getBrands() async {
-    final brandCollection =
-        FirebaseFirestore.instance.collection(FirestoreCollection.brands);
-    final brandCollectionService = FirebaseClient<BrandModel>(brandCollection);
-
-    final brands = await brandCollectionService.readCollection(
-      toMap: (Map<String, dynamic> data, String id) {
-        return BrandModel.fromJson(data);
-      },
-    );
-    brandModel =
-        brands.firstWhere((element) => element.name == widget.product.brand);
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    getBrands();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(16),
-      onTap: () => context.router.push(const ProductDetailRouter()),
+      onTap: () => context.router.push(ProductDetailRouter(
+        product: widget.product,
+      )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -63,18 +40,20 @@ class _ProductTileState extends State<ProductTile> {
                 color: colorLightGrey,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  brandModel != null
+                  widget.brand.logo.isNotEmpty
                       ? SvgPicture.network(
-                          brandModel?.logo ?? '',
+                          widget.brand.logo,
                           height: 24,
                           width: 24,
                           colorFilter: const ColorFilter.mode(
                             productTileColor,
                             BlendMode.srcIn,
                           ),
-                        ).padding(top: 8, left: 8, right: 8)
+                        )
+                          .padding(top: 8, left: 8, right: 8)
+                          .alignment(Alignment.centerLeft)
                       : const SizedBox(
                           height: 24,
                           width: 24,

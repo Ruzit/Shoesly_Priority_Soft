@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../utils/i_session_manager.dart';
+import '../shared/session_manager/i_session_manager.dart';
 
 @injectable
 class AuthGuard extends AutoRouteGuard {

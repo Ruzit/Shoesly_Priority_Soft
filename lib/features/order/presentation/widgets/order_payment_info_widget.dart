@@ -5,7 +5,10 @@ import '../../../../core/utils/spacing_utils.dart';
 import 'order_payment_tile.dart';
 
 class OrderPaymentInfoWidget extends StatelessWidget {
-  const OrderPaymentInfoWidget({super.key});
+  final double subTotal;
+  final double shippingFee;
+  const OrderPaymentInfoWidget(
+      {super.key, required this.subTotal, required this.shippingFee});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +23,14 @@ class OrderPaymentInfoWidget extends StatelessWidget {
               ?.copyWith(fontWeight: FontWeight.w600, fontSize: 18),
         ),
         verticalSpace(space: 8.0),
-        const OrderPaymentTile(
+        OrderPaymentTile(
           title: "Sub Total",
-          price: "\$ 705",
+          price: "\$${subTotal.toStringAsFixed(2)}",
         ),
         verticalSpace(space: 12.0),
-        const OrderPaymentTile(
+        OrderPaymentTile(
           title: "Shipping",
-          price: "\$ 20",
+          price: "\$${shippingFee.toStringAsFixed(2)}",
         ),
         verticalSpace(space: 16.0),
         const Divider(
@@ -38,7 +41,7 @@ class OrderPaymentInfoWidget extends StatelessWidget {
         verticalSpace(space: 16.0),
         OrderPaymentTile(
           title: "Grand Total",
-          price: "\$ 725",
+          price: "\$${(subTotal + shippingFee).toStringAsFixed(2)}",
           priceStyle: Theme.of(context)
               .textTheme
               .bodyLarge!

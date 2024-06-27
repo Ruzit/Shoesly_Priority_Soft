@@ -20,18 +20,21 @@ mixin _$BrandEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBrandList,
+    required TResult Function(String brandName) getSpecificBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBrandList,
+    TResult? Function(String brandName)? getSpecificBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBrandList,
+    TResult Function(String brandName)? getSpecificBrand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$BrandEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_GetBrandList value) getBrandList,
+    required TResult Function(_GetSpecificBrand value) getSpecificBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_GetBrandList value)? getBrandList,
+    TResult? Function(_GetSpecificBrand value)? getSpecificBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_GetBrandList value)? getBrandList,
+    TResult Function(_GetSpecificBrand value)? getSpecificBrand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBrandList,
+    required TResult Function(String brandName) getSpecificBrand,
   }) {
     return started();
   }
@@ -123,6 +130,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBrandList,
+    TResult? Function(String brandName)? getSpecificBrand,
   }) {
     return started?.call();
   }
@@ -132,6 +140,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBrandList,
+    TResult Function(String brandName)? getSpecificBrand,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -145,6 +154,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_GetBrandList value) getBrandList,
+    required TResult Function(_GetSpecificBrand value) getSpecificBrand,
   }) {
     return started(this);
   }
@@ -154,6 +164,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_GetBrandList value)? getBrandList,
+    TResult? Function(_GetSpecificBrand value)? getSpecificBrand,
   }) {
     return started?.call(this);
   }
@@ -163,6 +174,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_GetBrandList value)? getBrandList,
+    TResult Function(_GetSpecificBrand value)? getSpecificBrand,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -216,6 +228,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getBrandList,
+    required TResult Function(String brandName) getSpecificBrand,
   }) {
     return getBrandList();
   }
@@ -225,6 +238,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getBrandList,
+    TResult? Function(String brandName)? getSpecificBrand,
   }) {
     return getBrandList?.call();
   }
@@ -234,6 +248,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getBrandList,
+    TResult Function(String brandName)? getSpecificBrand,
     required TResult orElse(),
   }) {
     if (getBrandList != null) {
@@ -247,6 +262,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_GetBrandList value) getBrandList,
+    required TResult Function(_GetSpecificBrand value) getSpecificBrand,
   }) {
     return getBrandList(this);
   }
@@ -256,6 +272,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_GetBrandList value)? getBrandList,
+    TResult? Function(_GetSpecificBrand value)? getSpecificBrand,
   }) {
     return getBrandList?.call(this);
   }
@@ -265,6 +282,7 @@ class _$GetBrandListImpl implements _GetBrandList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_GetBrandList value)? getBrandList,
+    TResult Function(_GetSpecificBrand value)? getSpecificBrand,
     required TResult orElse(),
   }) {
     if (getBrandList != null) {
@@ -279,6 +297,148 @@ abstract class _GetBrandList implements BrandEvent {
 }
 
 /// @nodoc
+abstract class _$$GetSpecificBrandImplCopyWith<$Res> {
+  factory _$$GetSpecificBrandImplCopyWith(_$GetSpecificBrandImpl value,
+          $Res Function(_$GetSpecificBrandImpl) then) =
+      __$$GetSpecificBrandImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String brandName});
+}
+
+/// @nodoc
+class __$$GetSpecificBrandImplCopyWithImpl<$Res>
+    extends _$BrandEventCopyWithImpl<$Res, _$GetSpecificBrandImpl>
+    implements _$$GetSpecificBrandImplCopyWith<$Res> {
+  __$$GetSpecificBrandImplCopyWithImpl(_$GetSpecificBrandImpl _value,
+      $Res Function(_$GetSpecificBrandImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? brandName = null,
+  }) {
+    return _then(_$GetSpecificBrandImpl(
+      null == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetSpecificBrandImpl implements _GetSpecificBrand {
+  const _$GetSpecificBrandImpl(this.brandName);
+
+  @override
+  final String brandName;
+
+  @override
+  String toString() {
+    return 'BrandEvent.getSpecificBrand(brandName: $brandName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetSpecificBrandImpl &&
+            (identical(other.brandName, brandName) ||
+                other.brandName == brandName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, brandName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSpecificBrandImplCopyWith<_$GetSpecificBrandImpl> get copyWith =>
+      __$$GetSpecificBrandImplCopyWithImpl<_$GetSpecificBrandImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getBrandList,
+    required TResult Function(String brandName) getSpecificBrand,
+  }) {
+    return getSpecificBrand(brandName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getBrandList,
+    TResult? Function(String brandName)? getSpecificBrand,
+  }) {
+    return getSpecificBrand?.call(brandName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getBrandList,
+    TResult Function(String brandName)? getSpecificBrand,
+    required TResult orElse(),
+  }) {
+    if (getSpecificBrand != null) {
+      return getSpecificBrand(brandName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetBrandList value) getBrandList,
+    required TResult Function(_GetSpecificBrand value) getSpecificBrand,
+  }) {
+    return getSpecificBrand(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetBrandList value)? getBrandList,
+    TResult? Function(_GetSpecificBrand value)? getSpecificBrand,
+  }) {
+    return getSpecificBrand?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetBrandList value)? getBrandList,
+    TResult Function(_GetSpecificBrand value)? getSpecificBrand,
+    required TResult orElse(),
+  }) {
+    if (getSpecificBrand != null) {
+      return getSpecificBrand(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSpecificBrand implements BrandEvent {
+  const factory _GetSpecificBrand(final String brandName) =
+      _$GetSpecificBrandImpl;
+
+  String get brandName;
+  @JsonKey(ignore: true)
+  _$$GetSpecificBrandImplCopyWith<_$GetSpecificBrandImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$BrandState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -286,6 +446,7 @@ mixin _$BrandState {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -294,6 +455,7 @@ mixin _$BrandState {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -302,6 +464,7 @@ mixin _$BrandState {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -311,6 +474,8 @@ mixin _$BrandState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -319,6 +484,7 @@ mixin _$BrandState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -327,6 +493,7 @@ mixin _$BrandState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -392,6 +559,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
   }) {
     return initial();
   }
@@ -403,6 +571,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
   }) {
     return initial?.call();
   }
@@ -414,6 +583,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -429,6 +599,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
   }) {
     return initial(this);
   }
@@ -440,6 +612,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
   }) {
     return initial?.call(this);
   }
@@ -451,6 +624,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -506,6 +680,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
   }) {
     return loading();
   }
@@ -517,6 +692,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
   }) {
     return loading?.call();
   }
@@ -528,6 +704,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -543,6 +720,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
   }) {
     return loading(this);
   }
@@ -554,6 +733,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
   }) {
     return loading?.call(this);
   }
@@ -565,6 +745,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -647,6 +828,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
   }) {
     return error(errorMsg);
   }
@@ -658,6 +840,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
   }) {
     return error?.call(errorMsg);
   }
@@ -669,6 +852,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -684,6 +868,8 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
   }) {
     return error(this);
   }
@@ -695,6 +881,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
   }) {
     return error?.call(this);
   }
@@ -706,6 +893,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -800,6 +988,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
   }) {
     return success(brandList);
   }
@@ -811,6 +1000,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
   }) {
     return success?.call(brandList);
   }
@@ -822,6 +1012,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -837,6 +1028,8 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
   }) {
     return success(this);
   }
@@ -848,6 +1041,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
   }) {
     return success?.call(this);
   }
@@ -859,6 +1053,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -876,4 +1071,160 @@ abstract class _Success implements BrandState {
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetSpecificBrandSuccessImplCopyWith<$Res> {
+  factory _$$GetSpecificBrandSuccessImplCopyWith(
+          _$GetSpecificBrandSuccessImpl value,
+          $Res Function(_$GetSpecificBrandSuccessImpl) then) =
+      __$$GetSpecificBrandSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BrandModel brand});
+}
+
+/// @nodoc
+class __$$GetSpecificBrandSuccessImplCopyWithImpl<$Res>
+    extends _$BrandStateCopyWithImpl<$Res, _$GetSpecificBrandSuccessImpl>
+    implements _$$GetSpecificBrandSuccessImplCopyWith<$Res> {
+  __$$GetSpecificBrandSuccessImplCopyWithImpl(
+      _$GetSpecificBrandSuccessImpl _value,
+      $Res Function(_$GetSpecificBrandSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? brand = null,
+  }) {
+    return _then(_$GetSpecificBrandSuccessImpl(
+      brand: null == brand
+          ? _value.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as BrandModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetSpecificBrandSuccessImpl implements _GetSpecificBrandSuccess {
+  const _$GetSpecificBrandSuccessImpl({required this.brand});
+
+  @override
+  final BrandModel brand;
+
+  @override
+  String toString() {
+    return 'BrandState.getSpecificBrandsuccess(brand: $brand)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetSpecificBrandSuccessImpl &&
+            (identical(other.brand, brand) || other.brand == brand));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, brand);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSpecificBrandSuccessImplCopyWith<_$GetSpecificBrandSuccessImpl>
+      get copyWith => __$$GetSpecificBrandSuccessImplCopyWithImpl<
+          _$GetSpecificBrandSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errorMsg) error,
+    required TResult Function(List<BrandModel> brandList) success,
+    required TResult Function(BrandModel brand) getSpecificBrandsuccess,
+  }) {
+    return getSpecificBrandsuccess(brand);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errorMsg)? error,
+    TResult? Function(List<BrandModel> brandList)? success,
+    TResult? Function(BrandModel brand)? getSpecificBrandsuccess,
+  }) {
+    return getSpecificBrandsuccess?.call(brand);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errorMsg)? error,
+    TResult Function(List<BrandModel> brandList)? success,
+    TResult Function(BrandModel brand)? getSpecificBrandsuccess,
+    required TResult orElse(),
+  }) {
+    if (getSpecificBrandsuccess != null) {
+      return getSpecificBrandsuccess(brand);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_GetSpecificBrandSuccess value)
+        getSpecificBrandsuccess,
+  }) {
+    return getSpecificBrandsuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
+  }) {
+    return getSpecificBrandsuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_GetSpecificBrandSuccess value)? getSpecificBrandsuccess,
+    required TResult orElse(),
+  }) {
+    if (getSpecificBrandsuccess != null) {
+      return getSpecificBrandsuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSpecificBrandSuccess implements BrandState {
+  const factory _GetSpecificBrandSuccess({required final BrandModel brand}) =
+      _$GetSpecificBrandSuccessImpl;
+
+  BrandModel get brand;
+  @JsonKey(ignore: true)
+  _$$GetSpecificBrandSuccessImplCopyWith<_$GetSpecificBrandSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

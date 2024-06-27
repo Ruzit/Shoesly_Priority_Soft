@@ -7,4 +7,6 @@ class BrandState with _$BrandState {
   const factory BrandState.error({required String errorMsg}) = _Error;
   const factory BrandState.success({required List<BrandModel> brandList}) =
       _Success;
+  const factory BrandState.getSpecificBrandsuccess(
+      {required BrandModel brand}) = _GetSpecificBrandSuccess;
 }

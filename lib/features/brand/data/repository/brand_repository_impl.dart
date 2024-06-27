@@ -17,4 +17,19 @@ class BrandRepositoryImpl implements IBrandRepository {
     final response = await db.collection(FirestoreCollection.brands).get();
     return response.toApiResponseList(fromDoc: BrandModel.fromFirestore);
   }
+
+  @override
+  Future<BaseResponse<BrandModel>> getSpecificBrand(
+      {required String brandName}) async {
+    Query<Map<String, dynamic>> query = db
+        .collection(FirestoreCollection.brands)
+        .where("name", isEqualTo: brandName);
+    final response = await query.get();
+
+    return BaseResponse(
+      success: true,
+      message: "",
+      data: BrandModel.fromFirestore(response.docs.first),
+    );
+  }
 }

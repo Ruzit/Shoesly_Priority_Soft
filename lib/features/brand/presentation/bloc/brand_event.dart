@@ -4,4 +4,6 @@ part of 'brand_bloc.dart';
 class BrandEvent with _$BrandEvent {
   const factory BrandEvent.started() = _Started;
   const factory BrandEvent.getBrandList() = _GetBrandList;
+  const factory BrandEvent.getSpecificBrand(String brandName) =
+      _GetSpecificBrand;
 }

@@ -3,7 +3,8 @@ import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 
 class ProductDescriptionWidget extends StatelessWidget {
-  const ProductDescriptionWidget({super.key});
+  final String description;
+  const ProductDescriptionWidget({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ProductDescriptionWidget extends StatelessWidget {
         ),
         verticalSpace(space: 4.0),
         Text(
-          'Engineered to crush any movement-based workout, these On sneakers enhance the label\'s original Cloud sneaker with cutting edge technologies for a pair.',
+          description,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 fontSize: 14,
                 color: colorDarkGrey,

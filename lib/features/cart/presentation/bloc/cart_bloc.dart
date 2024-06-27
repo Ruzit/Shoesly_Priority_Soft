@@ -43,7 +43,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       await event.whenOrNull(
         getCartItems: () async {
           emit(const CartState.loading());
-
           final response = await _getCartItems(userId!);
           if (response.success) {
             emit(CartState.getCartItemssuccess(cartItems: response.data!));
@@ -52,10 +51,17 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           }
         },
         addToCart: (request) async {
+          request.userId = userId;
           emit(const CartState.loading());
           final response = await _addToCart(request);
           if (response) {
             emit(const CartState.success('Added to cart successfully'));
+            final response = await _getCartItems(userId!);
+            if (response.success) {
+              emit(CartState.getCartItemssuccess(cartItems: response.data!));
+            } else {
+              emit(CartState.error(errorMsg: response.message));
+            }
           } else {
             emit(const CartState.error(errorMsg: 'Failed to add to cart'));
           }
@@ -65,6 +71,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           final response = await _deleteCartItem(cartId);
           if (response) {
             emit(const CartState.success('Removed from cart successfully'));
+            final response = await _getCartItems(userId!);
+            if (response.success) {
+              emit(CartState.getCartItemssuccess(cartItems: response.data!));
+            } else {
+              emit(CartState.error(errorMsg: response.message));
+            }
           } else {
             emit(const CartState.error(errorMsg: 'Failed to remove from cart'));
           }
@@ -74,6 +86,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           final response = await _updateCartItem(cartId, quantity);
           if (response) {
             emit(const CartState.success('Cart updated successfully'));
+            final response = await _getCartItems(userId!);
+            if (response.success) {
+              emit(CartState.getCartItemssuccess(cartItems: response.data!));
+            } else {
+              emit(CartState.error(errorMsg: response.message));
+            }
           } else {
             emit(const CartState.error(errorMsg: 'Failed to update cart'));
           }

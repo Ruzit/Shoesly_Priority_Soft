@@ -1,4 +1,4 @@
-import '../model/user_model.dart';
+import '../../model/user_model.dart';
 
 abstract class ISessionManager {
   Future<void> saveToken({required String accessToken});

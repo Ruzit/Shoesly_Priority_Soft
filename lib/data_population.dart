@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 import 'core/constants/firestore_collection.dart';
 import 'core/enum/gender.dart';
 import 'core/enum/product_color.dart';
-import 'core/utils/firebase_config.dart';
+import 'core/shared/firebase_config/firebase_config.dart';
 import 'features/brand/data/models/brand_model.dart';
 import 'features/brand/domain/repository/brand_repository.dart';
 import 'features/products/data/models/product_filter.dart';

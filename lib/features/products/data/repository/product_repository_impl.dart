@@ -20,9 +20,6 @@ class ProductRepositoryImpl implements IProductRepository {
       {required ProductFilter filter}) async {
     Query<Map<String, dynamic>> query =
         db.collection(FirestoreCollection.products).limit(filter.limit);
-    //There will be losts of filter if we filter each field in different query
-    //to solve this problem even user havenot apply for field the default filter  will be applied and a index for every field already been created
-    //this way we can reduce numbe of indexes required in firestore
 
     if (filter.brand != null) {
       query = query.where("brand", isEqualTo: filter.brand!.name);
@@ -55,9 +52,9 @@ class ProductRepositoryImpl implements IProductRepository {
           break;
       }
     }
-    // query = query
-    //     .where("price", isGreaterThanOrEqualTo: filter.priceRange?.min ?? 0)
-    //     .where("price", isLessThanOrEqualTo: filter.priceRange?.max ?? 10000);
+    query = query
+        .where("price", isGreaterThanOrEqualTo: filter.priceRange?.min ?? 0)
+        .where("price", isLessThanOrEqualTo: filter.priceRange?.max ?? 10000);
     final response = await query.get();
     return response.toApiResponseList(fromDoc: ProductModel.fromFirestore);
   }

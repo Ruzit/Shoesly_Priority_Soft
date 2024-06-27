@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
+import 'package:shoesly_priority_soft/features/brand/presentation/bloc/brand_bloc.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/bloc/product_bloc.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/widgets/product_tile.dart';
 import 'package:shoesly_priority_soft/gen/assets.gen.dart';
@@ -23,8 +24,10 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final productBloc = getIt<ProductBloc>();
+  final brandBloc = getIt<BrandBloc>();
 
   BrandModel? selectedBrand;
+  List<BrandModel> brands = [];
 
   ProductFilter filter = ProductFilter(limit: ProductFilter.perPage);
 
@@ -68,57 +71,81 @@ class _DashboardPageState extends State<DashboardPage> {
         shape: const StadiumBorder(),
         extendedIconLabelSpacing: 12,
       ).height(45),
-      body: BlocProvider<ProductBloc>(
-        create: (context) =>
-            productBloc..add(ProductEvent.getProductList(filter: filter)),
-        child: Column(
-          children: <Widget>[
-            BrandListSlider(
-              onSelected: (brand) {
-                filter.brand = brand;
-                productBloc.add(ProductEvent.getProductList(filter: filter));
-                selectedBrand = brand;
-                setState(() {});
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<ProductBloc>(
+            create: (context) =>
+                productBloc..add(ProductEvent.getProductList(filter: filter)),
+          ),
+          BlocProvider(
+            create: (context) =>
+                brandBloc..add(const BrandEvent.getBrandList()),
+          ),
+        ],
+        child: BlocListener<BrandBloc, BrandState>(
+          listener: (context, state) {
+            state.whenOrNull(
+              success: (brandList) {
+                if (brandList.isNotEmpty) {
+                  setState(() {
+                    brands = brandList;
+                  });
+                }
               },
-              selectedBrand: selectedBrand,
-            ),
-            Expanded(
-              child: BlocBuilder<ProductBloc, ProductState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    orElse: () => const SizedBox(),
-                    success: (products) {
-                      if (products.isEmpty) {
-                        return Center(
-                          child: Text(
-                            'No products found',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(color: Colors.grey),
-                          ),
-                        );
-                      }
-                      return GridView.builder(
-                        padding: const EdgeInsets.all(16.0),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 16.0,
-                          crossAxisSpacing: 16.0,
-                          childAspectRatio: 0.75,
-                        ),
-                        itemBuilder: (context, index) => ProductTile(
-                          product: products[index],
-                        ),
-                        itemCount: products.length,
-                      );
-                    },
-                  );
+            );
+          },
+          child: Column(
+            children: <Widget>[
+              BrandListSlider(
+                onSelected: (brand) {
+                  setState(() {
+                    filter.brand = brand;
+                    selectedBrand = brand;
+                  });
+                  productBloc.add(ProductEvent.getProductList(filter: filter));
                 },
+                selectedBrand: selectedBrand,
               ),
-            ),
-          ],
+              Expanded(
+                child: BlocBuilder<ProductBloc, ProductState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () => const SizedBox(),
+                      success: (products) {
+                        if (products.isEmpty) {
+                          return Center(
+                            child: Text(
+                              'No products found',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.grey),
+                            ),
+                          );
+                        }
+                        return GridView.builder(
+                          padding: const EdgeInsets.all(16.0),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 16.0,
+                            crossAxisSpacing: 16.0,
+                            childAspectRatio: 0.75,
+                          ),
+                          itemBuilder: (context, index) => ProductTile(
+                            product: products[index],
+                            brand: brands.firstWhere(
+                                (brand) => brand.name == products[index].brand),
+                          ),
+                          itemCount: products.length,
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

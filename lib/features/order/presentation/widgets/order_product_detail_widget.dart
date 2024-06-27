@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shoesly_priority_soft/core/enum/product_color.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/spacing_utils.dart';
+import '../../../cart/data/models/cart_model.dart';
 
 class OrderProductDetailWidget extends StatelessWidget {
-  const OrderProductDetailWidget({super.key});
+  final List<CartModel> items;
+  const OrderProductDetailWidget({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +26,25 @@ class OrderProductDetailWidget extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 3,
+          itemCount: items.length,
           itemBuilder: (context, index) {
             return ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
-                "Jordan 1 Retro High Tie Dye",
+                items[index].product.name,
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
                     ?.copyWith(fontWeight: FontWeight.w600),
               ).padding(bottom: 8),
               subtitle: Text(
-                "Nike . Red Grey . 40 . Qty 1",
+                "${items[index].product.brand}. ${items[index].productColor?.text}. ${items[index].size} Qty ${items[index].quantity}",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: colorDarkGrey,
                     ),
               ),
               trailing: Text(
-                "\$ 235",
+                "\$${items[index].product.price * items[index].quantity}",
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
