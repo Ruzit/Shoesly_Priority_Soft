@@ -4,7 +4,14 @@ import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class ProductSizeWidget extends StatelessWidget {
-  const ProductSizeWidget({super.key});
+  final List<double> sizes;
+  final double? selectedSize;
+  final Function(double) onSizeSelect;
+  const ProductSizeWidget(
+      {super.key,
+      required this.sizes,
+      this.selectedSize,
+      required this.onSizeSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -19,28 +26,36 @@ class ProductSizeWidget extends StatelessWidget {
               ?.copyWith(fontWeight: FontWeight.w600),
         ),
         verticalSpace(space: 4.0),
-        ListView.builder(
-          itemBuilder: (context, index) => Container(
-            height: 45,
-            width: 45,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(right: 12),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: borderColor,
-                width: 1.0,
+        ListView.separated(
+          separatorBuilder: (context, index) => horizontalSpace(space: 12.0),
+          itemBuilder: (context, index) => InkWell(
+            onTap: () => onSizeSelect(sizes[index]),
+            customBorder: const CircleBorder(),
+            child: Container(
+              height: 45,
+              width: 45,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color:
+                      selectedSize == sizes[index] ? blackColor : borderColor,
+                  width: 1.0,
+                ),
+                color: selectedSize == sizes[index] ? blackColor : null,
+              ),
+              child: Text(
+                '${sizes[index]}',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: selectedSize == sizes[index]
+                          ? Colors.white
+                          : colorDarkGrey,
+                    ),
               ),
             ),
-            child: Text(
-              '40.5',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: colorDarkGrey,
-                  ),
-            ),
           ),
-          itemCount: 4,
+          itemCount: sizes.length,
           scrollDirection: Axis.horizontal,
         ).height(50),
       ],

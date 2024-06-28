@@ -1,20 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
+import 'package:shoesly_priority_soft/core/extensions/date_extension.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_rating_bar.dart';
+import 'package:shoesly_priority_soft/features/reviews/data/models/review_model.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../../core/utils/spacing_utils.dart';
 
 class ReviewTile extends StatelessWidget {
-  const ReviewTile({super.key});
+  final ReviewModel review;
+  const ReviewTile({super.key, required this.review});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const CircleAvatar(
+        CircleAvatar(
           radius: 24,
+          backgroundImage: CachedNetworkImageProvider(review.userImage),
         ),
         horizontalSpace(space: 12.0),
         Column(
@@ -23,7 +28,7 @@ class ReviewTile extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'John Doe',
+                  review.userName,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
@@ -31,7 +36,7 @@ class ReviewTile extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  'Today',
+                  review.createdAt.timeAgo(),
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall
@@ -40,13 +45,13 @@ class ReviewTile extends StatelessWidget {
               ],
             ),
             verticalSpace(space: 4.0),
-            const AppRatingBar(
-              initialRating: 4,
+            AppRatingBar(
+              initialRating: review.reviewScore.toDouble(),
               maxRating: 5,
             ),
             verticalSpace(space: 8.0),
             Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              review.content,
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],

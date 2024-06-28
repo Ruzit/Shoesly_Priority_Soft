@@ -28,27 +28,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     OrderSummaryPageRouter.name: (routeData) {
+      final args = routeData.argsAs<OrderSummaryPageRouterArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OrderSummaryPage(),
+        child: OrderSummaryPage(
+          key: args.key,
+          cartItems: args.cartItems,
+        ),
       );
     },
     ProductDetailRouter.name: (routeData) {
+      final args = routeData.argsAs<ProductDetailRouterArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProductDetailPage(),
+        child: ProductDetailPage(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
     ProductFilterRouter.name: (routeData) {
+      final args = routeData.argsAs<ProductFilterRouterArgs>(
+          orElse: () => const ProductFilterRouterArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProductFilterPage(),
+        child: ProductFilterPage(
+          key: args.key,
+          filter: args.filter,
+        ),
       );
     },
     ReviewPageRouter.name: (routeData) {
+      final args = routeData.argsAs<ReviewPageRouterArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ReviewPage(),
+        child: ReviewPage(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
     SplashRouter.name: (routeData) {
@@ -90,58 +107,154 @@ class DashboardRouter extends PageRouteInfo<void> {
 
 /// generated route for
 /// [OrderSummaryPage]
-class OrderSummaryPageRouter extends PageRouteInfo<void> {
-  const OrderSummaryPageRouter({List<PageRouteInfo>? children})
-      : super(
+class OrderSummaryPageRouter extends PageRouteInfo<OrderSummaryPageRouterArgs> {
+  OrderSummaryPageRouter({
+    Key? key,
+    required List<CartModel> cartItems,
+    List<PageRouteInfo>? children,
+  }) : super(
           OrderSummaryPageRouter.name,
+          args: OrderSummaryPageRouterArgs(
+            key: key,
+            cartItems: cartItems,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OrderSummaryPageRouter';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<OrderSummaryPageRouterArgs> page =
+      PageInfo<OrderSummaryPageRouterArgs>(name);
+}
+
+class OrderSummaryPageRouterArgs {
+  const OrderSummaryPageRouterArgs({
+    this.key,
+    required this.cartItems,
+  });
+
+  final Key? key;
+
+  final List<CartModel> cartItems;
+
+  @override
+  String toString() {
+    return 'OrderSummaryPageRouterArgs{key: $key, cartItems: $cartItems}';
+  }
 }
 
 /// generated route for
 /// [ProductDetailPage]
-class ProductDetailRouter extends PageRouteInfo<void> {
-  const ProductDetailRouter({List<PageRouteInfo>? children})
-      : super(
+class ProductDetailRouter extends PageRouteInfo<ProductDetailRouterArgs> {
+  ProductDetailRouter({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           ProductDetailRouter.name,
+          args: ProductDetailRouterArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ProductDetailRouter';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ProductDetailRouterArgs> page =
+      PageInfo<ProductDetailRouterArgs>(name);
+}
+
+class ProductDetailRouterArgs {
+  const ProductDetailRouterArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'ProductDetailRouterArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for
 /// [ProductFilterPage]
-class ProductFilterRouter extends PageRouteInfo<void> {
-  const ProductFilterRouter({List<PageRouteInfo>? children})
-      : super(
+class ProductFilterRouter extends PageRouteInfo<ProductFilterRouterArgs> {
+  ProductFilterRouter({
+    Key? key,
+    ProductFilter? filter,
+    List<PageRouteInfo>? children,
+  }) : super(
           ProductFilterRouter.name,
+          args: ProductFilterRouterArgs(
+            key: key,
+            filter: filter,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ProductFilterRouter';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ProductFilterRouterArgs> page =
+      PageInfo<ProductFilterRouterArgs>(name);
+}
+
+class ProductFilterRouterArgs {
+  const ProductFilterRouterArgs({
+    this.key,
+    this.filter,
+  });
+
+  final Key? key;
+
+  final ProductFilter? filter;
+
+  @override
+  String toString() {
+    return 'ProductFilterRouterArgs{key: $key, filter: $filter}';
+  }
 }
 
 /// generated route for
 /// [ReviewPage]
-class ReviewPageRouter extends PageRouteInfo<void> {
-  const ReviewPageRouter({List<PageRouteInfo>? children})
-      : super(
+class ReviewPageRouter extends PageRouteInfo<ReviewPageRouterArgs> {
+  ReviewPageRouter({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           ReviewPageRouter.name,
+          args: ReviewPageRouterArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ReviewPageRouter';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ReviewPageRouterArgs> page =
+      PageInfo<ReviewPageRouterArgs>(name);
+}
+
+class ReviewPageRouterArgs {
+  const ReviewPageRouterArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'ReviewPageRouterArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for

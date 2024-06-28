@@ -5,7 +5,14 @@ import '../../../../core/utils/spacing_utils.dart';
 import '../../../../core/widgets/app_rating_bar.dart';
 
 class ProductInfoWidget extends StatelessWidget {
-  const ProductInfoWidget({super.key});
+  final String name;
+  final int avgRating;
+  final int totalReviews;
+  const ProductInfoWidget(
+      {super.key,
+      required this.name,
+      required this.avgRating,
+      required this.totalReviews});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,7 @@ class ProductInfoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Jordan 1 Retro High Tie Dye',
+          name,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -22,21 +29,21 @@ class ProductInfoWidget extends StatelessWidget {
         verticalSpace(space: 6.0),
         Row(
           children: [
-            const AppRatingBar(
+            AppRatingBar(
               size: 16,
-              initialRating: 4,
+              initialRating: avgRating.toDouble(),
               maxRating: 5,
             ),
             horizontalSpace(space: 8),
             Text(
-              "4.5",
+              "$avgRating.0",
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(
               width: 04,
             ),
             Text(
-              "(1023 Reviews)",
+              "($totalReviews Reviews)",
               style: Theme.of(context)
                   .textTheme
                   .bodySmall

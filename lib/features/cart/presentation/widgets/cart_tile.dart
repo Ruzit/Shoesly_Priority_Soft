@@ -2,13 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
+import 'package:shoesly_priority_soft/core/enum/product_color.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
+import 'package:shoesly_priority_soft/core/widgets/app_network_image.dart';
+import 'package:shoesly_priority_soft/features/cart/data/models/cart_model.dart';
 import 'package:shoesly_priority_soft/features/cart/presentation/widgets/cart_quantity_button.dart';
-import 'package:shoesly_priority_soft/gen/assets.gen.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class CartTile extends StatelessWidget {
-  const CartTile({super.key});
+  final CartModel cartModel;
+  final Function(int) onUpdate;
+  final VoidCallback onDelete;
+  const CartTile(
+      {super.key,
+      required this.cartModel,
+      required this.onUpdate,
+      required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,7 @@ class CartTile extends StatelessWidget {
         children: [
           Expanded(
             child: InkWell(
-              onTap: () {},
+              onTap: onDelete,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(12),
@@ -48,7 +57,8 @@ class CartTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(22),
               color: colorLightGrey,
             ),
-            child: Assets.images.jordan1.image().padding(all: 12),
+            child: AppNetworkImage(url: cartModel.product.thumbnail)
+                .padding(all: 12),
           ),
           horizontalSpace(space: 16.0),
           Expanded(
@@ -57,14 +67,14 @@ class CartTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Text(
-                  'Jordan 1 Retro High Tie Dye',
+                  cartModel.product.name,
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'Nike . Red Grey . 40',
+                  "${cartModel.product.brand}. ${cartModel.productColor!.text}. ${cartModel.size}",
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall
@@ -73,7 +83,7 @@ class CartTile extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      '\$235,00',
+                      "\$${cartModel.product.price * cartModel.quantity}",
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
@@ -82,16 +92,18 @@ class CartTile extends StatelessWidget {
                     const Spacer(),
                     CartQuantityButton(
                       action: CartQuantityAction.remove,
-                      quantity: 1,
-                      onUpdate: (value) {},
+                      quantity: cartModel.quantity,
+                      onUpdate: onUpdate,
                     ),
-                    horizontalSpace(space: 8.0),
-                    const Text('1'),
-                    horizontalSpace(space: 8.0),
+                    horizontalSpace(space: 12.0),
+                    Text(
+                      "${cartModel.quantity}",
+                    ),
+                    horizontalSpace(space: 12.0),
                     CartQuantityButton(
                       action: CartQuantityAction.add,
-                      quantity: 1,
-                      onUpdate: (value) {},
+                      quantity: cartModel.quantity,
+                      onUpdate: onUpdate,
                     ),
                   ],
                 ),

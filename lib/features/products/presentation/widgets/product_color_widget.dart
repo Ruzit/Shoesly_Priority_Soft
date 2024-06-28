@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/enum/product_color.dart';
 
 class ProductColorPicker extends StatefulWidget {
-  final List<Color> colors;
-  final Color? selectedColor;
-
-  ///[onColorSelected] will be called when user select any color
-  final void Function(Color code) onColorSelected;
+  final List<ProductColor> colors;
+  final ProductColor selectedColor;
+  final void Function(ProductColor) onColorSelected;
   const ProductColorPicker({
     super.key,
     required this.colors,
-    this.selectedColor,
+    required this.selectedColor,
     required this.onColorSelected,
   });
 
@@ -52,19 +51,20 @@ class _ProductColorPickerState extends State<ProductColorPicker> {
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(
-                        color: color,
+                        color: color.value,
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: borderColor,
                           width: 1,
                         )),
                   ),
-                  if (widget.selectedColor == color)
+                  if (widget.selectedColor.value == color.value)
                     Icon(
                       Icons.check,
                       size: 13,
-                      color:
-                          color == Colors.white ? Colors.black : Colors.white,
+                      color: color.value == Colors.white
+                          ? Colors.black
+                          : Colors.white,
                     )
                 ],
               ),
