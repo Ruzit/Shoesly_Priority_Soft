@@ -3,6 +3,4 @@ import 'package:shoesly_priority_soft/features/brand/data/models/brand_model.dar
 
 abstract class IBrandRepository {
   Future<BaseResponseList<BrandModel>> getBrandList();
-  Future<BaseResponse<BrandModel>> getSpecificBrand(
-      {required String brandName});
 }

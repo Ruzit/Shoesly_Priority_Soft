@@ -31,7 +31,7 @@
 
 //   const Map<String, dynamic> data = {'answer': 42};
 
-//   group('getLatestNews', () {
+//   group('getBrandList', () {
 //     final tBrandModel =
 //         BrandModel.fromJson(jsonDecode(fixtures('brand_model.json')));
 
