@@ -21,7 +21,7 @@ class _ColorFilterViewState extends State<ColorFilterView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Gender',
+          'Color',
           style: Theme.of(context)
               .textTheme
               .titleMedium
