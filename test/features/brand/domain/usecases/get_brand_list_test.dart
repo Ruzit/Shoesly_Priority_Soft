@@ -26,7 +26,7 @@ void main() {
     totalProducts: 88,
   );
 
-  test('should get news from repo', () async {
+  test('should get brand list from repo', () async {
     when(mockBrandRepository.getBrandList()).thenAnswer((_) async =>
         BaseResponseList(
             success: true, message: 'Success', data: [tBrandModel]));
