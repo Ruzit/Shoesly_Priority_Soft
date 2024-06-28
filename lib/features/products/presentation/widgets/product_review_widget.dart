@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_button.dart';
+import 'package:shoesly_priority_soft/features/products/data/models/product_model.dart';
 import 'package:shoesly_priority_soft/features/reviews/data/models/review_filter.dart';
 import 'package:shoesly_priority_soft/features/reviews/presentation/widgets/review_tile.dart';
 
@@ -13,10 +14,10 @@ import '../../../reviews/presentation/bloc/review_bloc.dart';
 
 class ProductTopReviewsWidget extends StatefulWidget {
   final int totalReviews;
-  final String productId;
+  final ProductModel product;
 
   const ProductTopReviewsWidget(
-      {super.key, required this.totalReviews, required this.productId});
+      {super.key, required this.totalReviews, required this.product});
 
   @override
   State<ProductTopReviewsWidget> createState() =>
@@ -32,7 +33,7 @@ class _ProductTopReviewsWidgetState extends State<ProductTopReviewsWidget> {
       create: (context) => reviewBloc
         ..add(
           ReviewEvent.getProductReviews(
-            productId: widget.productId,
+            productId: widget.product.id!,
             filter: ReviewFilter(count: 3),
           ),
         ),
@@ -75,7 +76,7 @@ class _ProductTopReviewsWidgetState extends State<ProductTopReviewsWidget> {
             backgroundColor: const Color(0xffffffff),
             borderColor: borderColor,
             onPressed: () => context.router.push(ReviewPageRouter(
-              productId: widget.productId,
+              product: widget.product,
             )),
           )
         ],

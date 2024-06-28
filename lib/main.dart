@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
         title: 'Shoesly',
         theme: AppTheme.lightTheme,
         home: const SizedBox(),
+        debugShowCheckedModeBanner: false,
         builder: (context, child) {
           SystemChrome.setPreferredOrientations([
             DeviceOrientation.portraitUp,
@@ -44,7 +45,6 @@ class MyApp extends StatelessWidget {
           ]);
           return FlutterEasyLoading(
             child: MaterialApp.router(
-              // scaffoldMessengerKey: snackbarMessanger,
               debugShowCheckedModeBanner: false,
               theme: AppTheme.lightTheme,
               themeMode: ThemeMode.light,

@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:shoesly_priority_soft/core/extensions/cart_extension.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
+import 'package:shoesly_priority_soft/core/widgets/app_loader.dart';
 import 'package:shoesly_priority_soft/features/cart/presentation/widgets/total_price_and_button_widget.dart';
 
 import '../../../../core/routes/app_router.dart';
@@ -30,7 +32,6 @@ class _CartPageState extends State<CartPage> {
         builder: (context, state) {
           return state.maybeWhen(
               orElse: () => const SizedBox(),
-              loading: () => const Center(child: CircularProgressIndicator()),
               getCartItemssuccess: (cartItems) {
                 if (cartItems.isEmpty) {
                   return const SizedBox();
@@ -51,11 +52,16 @@ class _CartPageState extends State<CartPage> {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () => const SizedBox(),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => const AppLoader(),
             getCartItemssuccess: (cartItems) {
               if (cartItems.isEmpty) {
-                return const Center(
-                  child: Text('Cart is empty'),
+                return Center(
+                  child: Text(
+                    'Cart is empty',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: productTileColor,
+                        ),
+                  ),
                 );
               }
               return ListView.separated(

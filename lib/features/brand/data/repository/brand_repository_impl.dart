@@ -25,7 +25,6 @@ class BrandRepositoryImpl implements IBrandRepository {
         .collection(FirestoreCollection.brands)
         .where("name", isEqualTo: brandName);
     final response = await query.get();
-
     return BaseResponse(
       success: true,
       message: "",

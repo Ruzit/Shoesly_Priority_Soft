@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
+import 'package:shoesly_priority_soft/core/widgets/app_loader.dart';
 import 'package:shoesly_priority_soft/features/brand/presentation/bloc/brand_bloc.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/bloc/product_bloc.dart';
 import 'package:shoesly_priority_soft/features/products/presentation/widgets/product_tile.dart';
@@ -37,6 +38,7 @@ class _DashboardPageState extends State<DashboardPage> {
     return AppBaseView(
       color: Colors.white,
       appBar: AppBar(
+        centerTitle: false,
         title: Text(
           'Discover',
           style: Theme.of(context)
@@ -138,6 +140,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   builder: (context, state) {
                     return state.maybeWhen(
                       orElse: () => const SizedBox(),
+                      loading: () => const AppLoader(),
                       success: (products) {
                         if (products.isEmpty) {
                           return Center(

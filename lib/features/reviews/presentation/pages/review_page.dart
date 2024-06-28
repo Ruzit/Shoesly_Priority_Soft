@@ -5,6 +5,7 @@ import 'package:shoesly_priority_soft/core/enum/review_score_filter.dart';
 import 'package:shoesly_priority_soft/core/injection/injection.dart';
 import 'package:shoesly_priority_soft/core/utils/spacing_utils.dart';
 import 'package:shoesly_priority_soft/core/widgets/app_base_view.dart';
+import 'package:shoesly_priority_soft/features/products/data/models/product_model.dart';
 import 'package:shoesly_priority_soft/features/reviews/data/models/review_filter.dart';
 import 'package:shoesly_priority_soft/features/reviews/presentation/bloc/review_bloc.dart';
 import 'package:shoesly_priority_soft/features/reviews/presentation/widgets/review_tile.dart';
@@ -15,8 +16,8 @@ import '../../../../core/constants/app_colors.dart';
 
 @RoutePage(name: 'ReviewPageRouter')
 class ReviewPage extends StatefulWidget {
-  final String productId;
-  const ReviewPage({super.key, required this.productId});
+  final ProductModel product;
+  const ReviewPage({super.key, required this.product});
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -30,7 +31,7 @@ class _ReviewPageState extends State<ReviewPage> {
   @override
   Widget build(BuildContext context) {
     return AppBaseView(
-      titleText: 'Review (1045)',
+      titleText: 'Review (${widget.product.totalReviews})',
       centerTitle: true,
       actions: [
         Row(
@@ -51,7 +52,7 @@ class _ReviewPageState extends State<ReviewPage> {
         create: (context) => reviewBloc
           ..add(
             ReviewEvent.getProductReviews(
-              productId: widget.productId,
+              productId: widget.product.id!,
               filter: ReviewFilter(count: 20),
             ),
           ),
@@ -72,7 +73,7 @@ class _ReviewPageState extends State<ReviewPage> {
                               });
                               reviewBloc.add(
                                 ReviewEvent.getProductReviews(
-                                  productId: widget.productId,
+                                  productId: widget.product.id!,
                                   filter: ReviewFilter(
                                     count: 100,
                                     scoreFilter: value,

@@ -50,7 +50,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         state.whenOrNull(
           // loading: EasyLoading.show,
           error: (message) => EasyLoading.showError(message),
-          success: (msg) => showModalBottomSheet(
+          addToCartsuccess: (msg) => showModalBottomSheet(
             isScrollControlled: true,
             // ignore: use_build_context_synchronously
             context: context,
@@ -157,7 +157,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
               verticalSpace(space: 16.0),
               ProductTopReviewsWidget(
-                productId: widget.product.id!,
+                product: widget.product,
                 totalReviews: widget.product.totalReviews,
               ),
               verticalSpace(space: 16.0),

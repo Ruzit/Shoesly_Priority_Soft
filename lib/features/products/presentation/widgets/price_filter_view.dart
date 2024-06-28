@@ -46,6 +46,9 @@ class _PriceFilterViewState extends State<PriceFilterView> {
             activeTrackColor: Colors.red,
           ),
           child: SfRangeSlider(
+            interval: 500,
+            showTicks: true,
+            minorTicksPerInterval: 5,
             min: 0,
             max: 2000,
             activeColor: blackColor,

@@ -5,15 +5,15 @@ import 'package:injectable/injectable.dart';
 import 'package:shoesly_priority_soft/features/reviews/data/models/review_model.dart';
 import 'package:uuid/uuid.dart';
 
-import 'core/constants/firestore_collection.dart';
-import 'core/enum/gender.dart';
-import 'core/enum/product_color.dart';
-import 'core/shared/firebase_config/firebase_config.dart';
-import 'features/brand/data/models/brand_model.dart';
-import 'features/brand/domain/repository/brand_repository.dart';
-import 'features/products/data/models/product_filter.dart';
-import 'features/products/data/models/product_model.dart';
-import 'features/products/domain/repository/product_repository.dart';
+import '../../../features/brand/data/models/brand_model.dart';
+import '../../../features/brand/domain/repository/brand_repository.dart';
+import '../../../features/products/data/models/product_filter.dart';
+import '../../../features/products/data/models/product_model.dart';
+import '../../../features/products/domain/repository/product_repository.dart';
+import '../../constants/firestore_collection.dart';
+import '../../enum/gender.dart';
+import '../../enum/product_color.dart';
+import '../firebase_config/firebase_config.dart';
 
 @injectable
 class DataPopulation {
@@ -36,9 +36,9 @@ class DataPopulation {
   );
 
   Future<void> populate() async {
-    // await populateBrand();
-    // await populateProduct();
-    // await populateReviewData();
+    await populateBrand();
+    await populateProduct();
+    await populateReviewData();
   }
 
   Future<void> populateBrand() async {

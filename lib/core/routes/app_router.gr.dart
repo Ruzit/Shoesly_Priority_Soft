@@ -64,7 +64,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: ReviewPage(
           key: args.key,
-          productId: args.productId,
+          product: args.product,
         ),
       );
     },
@@ -224,13 +224,13 @@ class ProductFilterRouterArgs {
 class ReviewPageRouter extends PageRouteInfo<ReviewPageRouterArgs> {
   ReviewPageRouter({
     Key? key,
-    required String productId,
+    required ProductModel product,
     List<PageRouteInfo>? children,
   }) : super(
           ReviewPageRouter.name,
           args: ReviewPageRouterArgs(
             key: key,
-            productId: productId,
+            product: product,
           ),
           initialChildren: children,
         );
@@ -244,16 +244,16 @@ class ReviewPageRouter extends PageRouteInfo<ReviewPageRouterArgs> {
 class ReviewPageRouterArgs {
   const ReviewPageRouterArgs({
     this.key,
-    required this.productId,
+    required this.product,
   });
 
   final Key? key;
 
-  final String productId;
+  final ProductModel product;
 
   @override
   String toString() {
-    return 'ReviewPageRouterArgs{key: $key, productId: $productId}';
+    return 'ReviewPageRouterArgs{key: $key, product: $product}';
   }
 }
 

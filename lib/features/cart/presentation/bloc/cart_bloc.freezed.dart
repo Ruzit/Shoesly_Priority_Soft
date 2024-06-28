@@ -807,6 +807,7 @@ mixin _$CartState {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -816,6 +817,7 @@ mixin _$CartState {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -825,6 +827,7 @@ mixin _$CartState {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -835,6 +838,7 @@ mixin _$CartState {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -844,6 +848,7 @@ mixin _$CartState {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -853,6 +858,7 @@ mixin _$CartState {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -918,6 +924,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) {
     return initial();
   }
@@ -930,6 +937,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) {
     return initial?.call();
   }
@@ -942,6 +950,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -958,6 +967,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) {
     return initial(this);
   }
@@ -970,6 +980,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) {
     return initial?.call(this);
   }
@@ -982,6 +993,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1038,6 +1050,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) {
     return loading();
   }
@@ -1050,6 +1063,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) {
     return loading?.call();
   }
@@ -1062,6 +1076,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1078,6 +1093,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) {
     return loading(this);
   }
@@ -1090,6 +1106,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) {
     return loading?.call(this);
   }
@@ -1102,6 +1119,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1185,6 +1203,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) {
     return error(errorMsg);
   }
@@ -1197,6 +1216,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) {
     return error?.call(errorMsg);
   }
@@ -1209,6 +1229,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1225,6 +1246,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) {
     return error(this);
   }
@@ -1237,6 +1259,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) {
     return error?.call(this);
   }
@@ -1249,6 +1272,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1345,6 +1369,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) {
     return getCartItemssuccess(cartItems);
   }
@@ -1357,6 +1382,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) {
     return getCartItemssuccess?.call(cartItems);
   }
@@ -1369,6 +1395,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (getCartItemssuccess != null) {
@@ -1385,6 +1412,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) {
     return getCartItemssuccess(this);
   }
@@ -1397,6 +1425,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) {
     return getCartItemssuccess?.call(this);
   }
@@ -1409,6 +1438,7 @@ class _$GetCartItemsSuccessImpl implements _GetCartItemsSuccess {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (getCartItemssuccess != null) {
@@ -1497,6 +1527,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(String errorMsg) error,
     required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
     required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
   }) {
     return success(message);
   }
@@ -1509,6 +1540,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(String errorMsg)? error,
     TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
   }) {
     return success?.call(message);
   }
@@ -1521,6 +1553,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(String errorMsg)? error,
     TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
     TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1537,6 +1570,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Error value) error,
     required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
     required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
   }) {
     return success(this);
   }
@@ -1549,6 +1583,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Error value)? error,
     TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
   }) {
     return success?.call(this);
   }
@@ -1561,6 +1596,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Error value)? error,
     TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
     TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1576,5 +1612,162 @@ abstract class _Success implements CartState {
   String get message;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddToSuccessImplCopyWith<$Res> {
+  factory _$$AddToSuccessImplCopyWith(
+          _$AddToSuccessImpl value, $Res Function(_$AddToSuccessImpl) then) =
+      __$$AddToSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$AddToSuccessImplCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$AddToSuccessImpl>
+    implements _$$AddToSuccessImplCopyWith<$Res> {
+  __$$AddToSuccessImplCopyWithImpl(
+      _$AddToSuccessImpl _value, $Res Function(_$AddToSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$AddToSuccessImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddToSuccessImpl implements _AddToSuccess {
+  const _$AddToSuccessImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CartState.addToCartsuccess(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddToSuccessImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddToSuccessImplCopyWith<_$AddToSuccessImpl> get copyWith =>
+      __$$AddToSuccessImplCopyWithImpl<_$AddToSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errorMsg) error,
+    required TResult Function(List<CartModel> cartItems) getCartItemssuccess,
+    required TResult Function(String message) success,
+    required TResult Function(String message) addToCartsuccess,
+  }) {
+    return addToCartsuccess(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errorMsg)? error,
+    TResult? Function(List<CartModel> cartItems)? getCartItemssuccess,
+    TResult? Function(String message)? success,
+    TResult? Function(String message)? addToCartsuccess,
+  }) {
+    return addToCartsuccess?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errorMsg)? error,
+    TResult Function(List<CartModel> cartItems)? getCartItemssuccess,
+    TResult Function(String message)? success,
+    TResult Function(String message)? addToCartsuccess,
+    required TResult orElse(),
+  }) {
+    if (addToCartsuccess != null) {
+      return addToCartsuccess(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_GetCartItemsSuccess value) getCartItemssuccess,
+    required TResult Function(_Success value) success,
+    required TResult Function(_AddToSuccess value) addToCartsuccess,
+  }) {
+    return addToCartsuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_GetCartItemsSuccess value)? getCartItemssuccess,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_AddToSuccess value)? addToCartsuccess,
+  }) {
+    return addToCartsuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_GetCartItemsSuccess value)? getCartItemssuccess,
+    TResult Function(_Success value)? success,
+    TResult Function(_AddToSuccess value)? addToCartsuccess,
+    required TResult orElse(),
+  }) {
+    if (addToCartsuccess != null) {
+      return addToCartsuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddToSuccess implements CartState {
+  const factory _AddToSuccess(final String message) = _$AddToSuccessImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$AddToSuccessImplCopyWith<_$AddToSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

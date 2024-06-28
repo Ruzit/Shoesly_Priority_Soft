@@ -55,7 +55,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           emit(const CartState.loading());
           final response = await _addToCart(request);
           if (response) {
-            emit(const CartState.success('Added to cart successfully'));
+            emit(
+                const CartState.addToCartsuccess('Added to cart successfully'));
             final response = await _getCartItems(userId!);
             if (response.success) {
               emit(CartState.getCartItemssuccess(cartItems: response.data!));
