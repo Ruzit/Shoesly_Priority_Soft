@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DashboardPage(),
       );
     },
+    LoginRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginScreen(),
+      );
+    },
     OrderSummaryPageRouter.name: (routeData) {
       final args = routeData.argsAs<OrderSummaryPageRouterArgs>();
       return AutoRoutePage<dynamic>(
@@ -56,6 +62,18 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           filter: args.filter,
         ),
+      );
+    },
+    ProfileRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfilePage(),
+      );
+    },
+    RegisterRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegisterPage(),
       );
     },
     ReviewPageRouter.name: (routeData) {
@@ -101,6 +119,20 @@ class DashboardRouter extends PageRouteInfo<void> {
         );
 
   static const String name = 'DashboardRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginScreen]
+class LoginRouter extends PageRouteInfo<void> {
+  const LoginRouter({List<PageRouteInfo>? children})
+      : super(
+          LoginRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -217,6 +249,34 @@ class ProductFilterRouterArgs {
   String toString() {
     return 'ProductFilterRouterArgs{key: $key, filter: $filter}';
   }
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRouter extends PageRouteInfo<void> {
+  const ProfileRouter({List<PageRouteInfo>? children})
+      : super(
+          ProfileRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RegisterPage]
+class RegisterRouter extends PageRouteInfo<void> {
+  const RegisterRouter({List<PageRouteInfo>? children})
+      : super(
+          RegisterRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly_priority_soft/core/constants/app_colors.dart';
@@ -53,6 +54,10 @@ class _DashboardPageState extends State<DashboardPage> {
           IconButton(
             onPressed: () => context.router.push(const CartPageRouter()),
             icon: Assets.icons.bag.svg(),
+          ),
+          IconButton(
+            onPressed: () => context.router.push(const ProfileRouter()),
+            icon: const Icon(CupertinoIcons.person),
           ),
         ],
       ),

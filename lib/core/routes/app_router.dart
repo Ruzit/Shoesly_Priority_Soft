@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shoesly_priority_soft/features/auth/presentation/pages/login_page.dart';
+import 'package:shoesly_priority_soft/features/profile/presentation/profile_page.dart';
 
+import '../../features/auth/presentation/pages/register_page.dart';
 import '../../features/cart/data/models/cart_model.dart';
 import '../../features/cart/presentation/pages/cart_page.dart';
 import '../../features/order/presentation/pages/order_summary_page.dart';
@@ -25,6 +28,15 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: SplashRouter.page,
           initial: true,
+        ),
+        AutoRoute(
+          page: LoginRouter.page,
+        ),
+        AutoRoute(
+          page: RegisterRouter.page,
+        ),
+        AutoRoute(
+          page: ProfileRouter.page,
         ),
         AutoRoute(
           page: DashboardRouter.page,
