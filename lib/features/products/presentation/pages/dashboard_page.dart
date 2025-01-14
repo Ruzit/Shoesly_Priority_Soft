@@ -40,21 +40,16 @@ class _DashboardPageState extends State<DashboardPage> {
       color: Colors.white,
       appBar: AppBar(
         centerTitle: false,
-        title: Text(
-          'Discover',
-          style: Theme.of(context)
-              .textTheme
-              .headlineLarge
-              ?.copyWith(fontWeight: FontWeight.w900),
-        ),
         toolbarHeight: 80,
         elevation: 0.0,
         scrolledUnderElevation: 0.0,
         actions: [
+          // Replace "Discover" with the Cart Icon
           IconButton(
             onPressed: () => context.router.push(const CartPageRouter()),
-            icon: Assets.icons.bag.svg(),
+            icon: Assets.icons.bag.svg(), // Cart icon
           ),
+          // Profile Icon
           IconButton(
             onPressed: () => context.router.push(const ProfileRouter()),
             icon: const Icon(CupertinoIcons.person),
