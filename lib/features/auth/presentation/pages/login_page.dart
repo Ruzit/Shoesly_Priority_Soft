@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly_priority_soft/core/routes/app_router.dart';
+
 import '../../domain/auth_service.dart';
 
 @RoutePage(name: 'LoginRouter')
@@ -58,8 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: _mobileController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                prefixText: '+977 ',
-                labelText: 'Enter your mobile number',
+                labelText: 'Enter email address',
                 prefixIcon: const Icon(Icons.person),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
@@ -83,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: !_isPasswordVisible,
               decoration: InputDecoration(
                 labelText: 'Enter your password',
+                prefixIcon: const Icon(Icons.lock),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isPasswordVisible

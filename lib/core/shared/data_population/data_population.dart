@@ -57,7 +57,7 @@ class DataPopulation {
         id: uuid.v1(),
         name: 'Jordan',
         logo:
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fjordan1.png?alt=media&token=ffa34aa3-f3d1-4802-a5c4-4e3810f20d8d',
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fjordan.svg?alt=media&token=ec2725bb-6d8b-4b6e-b27b-75fa1cccbfc2',
         totalProducts: 40,
       ),
       BrandModel(
@@ -67,13 +67,13 @@ class DataPopulation {
             'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fadidas.svg?alt=media&token=a4e6a026-01c9-4eea-a48e-dd27570e99b6',
         totalProducts: 112,
       ),
-      BrandModel(
-        id: uuid.v1(),
-        name: 'Puma',
-        logo:
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fpuma.svg?alt=media&token=42795464-f61d-447f-93b7-484441e9bd86',
-        totalProducts: 52,
-      ),
+      // BrandModel(
+      //   id: uuid.v1(),
+      //   name: 'Puma',
+      //   logo:
+      //       'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fpuma.svg?alt=media&token=42795464-f61d-447f-93b7-484441e9bd86',
+      //   totalProducts: 52,
+      // ),
       BrandModel(
         id: uuid.v1(),
         name: 'Reebok',
@@ -81,13 +81,13 @@ class DataPopulation {
             'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Freebok.svg?alt=media&token=1cb4c7ac-8999-4f7b-a385-5fb952b1e56a',
         totalProducts: 60,
       ),
-      BrandModel(
-        id: uuid.v1(),
-        name: 'Vans',
-        logo:
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fvans.svg?alt=media&token=d20e3606-11a2-4634-a10b-487a29ead7bb',
-        totalProducts: 24,
-      ),
+      // BrandModel(
+      //   id: uuid.v1(),
+      //   name: 'Vans',
+      //   logo:
+      //       'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Icons%2Fvans.svg?alt=media&token=d20e3606-11a2-4634-a10b-487a29ead7bb',
+      //   totalProducts: 24,
+      // ),
     ];
 
     bool batchCreateSuccess = await firestoreService.createBatch(
@@ -115,188 +115,297 @@ class DataPopulation {
     final nike = brands.firstWhere((element) => element.name == "Nike");
     final jordan = brands.firstWhere((element) => element.name == "Jordan");
     final adidas = brands.firstWhere((element) => element.name == "Adidas");
-    final rebook = brands.firstWhere((element) => element.name == "Puma");
-    final puma = brands.firstWhere((element) => element.name == "Reebok");
-    final vans = brands.firstWhere((element) => element.name == "Vans");
-
-    final List<String> nikeImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fjordan6.png?alt=media&token=c7dad648-9d59-425a-bd19-fb2416246fe0');
-    final List<String> jordanImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fjordan1.png?alt=media&token=ffa34aa3-f3d1-4802-a5c4-4e3810f20d8d');
-    final List<String> adidasImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fadidas1.png?alt=media&token=8f68c6a8-c356-4a1b-b935-5e6b3055981a');
-    final List<String> rebookImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fadidas3.png?alt=media&token=1359c6eb-96b5-47d3-9cbf-d8c30416790f');
-    final List<String> pumaImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fadidas2.png?alt=media&token=4564616f-c144-4add-a2e6-84b67d1c1308');
-    final List<String> vansImage = List.generate(
-        3,
-        (index) =>
-            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/Images%2Fjordan3.png?alt=media&token=07fd0329-6f96-4117-9dd9-5e7bfb042f50');
+    final reebok = brands.firstWhere((element) => element.name == "Reebok");
 
     final products = [
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: nikeImage,
-          price: 200,
-          brand: nike.name,
-          avgRating: 4.5,
-          thumbnail: nikeImage.first,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.red],
-          gender: Gender.unisex),
-
+        id: uuid.v1(),
+        name: 'Adidas1',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas1.jpg?alt=media&token=87b324f9-08b3-40b8-8ae5-007a7757b07e'
+        ],
+        price: 200,
+        brand: adidas.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas1.jpg?alt=media&token=87b324f9-08b3-40b8-8ae5-007a7757b07e',
+        totalReviews: 10,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.black, ProductColor.red],
+        gender: Gender.unisex,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: adidasImage,
-          price: 250,
-          brand: adidas.name,
-          avgRating: 4.5,
-          totalReviews: 10,
-          thumbnail: adidasImage.first,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.black],
-          gender: Gender.unisex),
+        id: uuid.v1(),
+        name: 'Adidas2',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas2.png?alt=media&token=791481bb-d252-42f8-b5a8-9bcc3350ef08'
+        ],
+        price: 300,
+        brand: adidas.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas2.png?alt=media&token=791481bb-d252-42f8-b5a8-9bcc3350ef08',
+        totalReviews: 20,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.red],
+        gender: Gender.male,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: pumaImage,
-          price: 300,
-          brand: puma.name,
-          thumbnail: pumaImage.first,
-          avgRating: 4.5,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.black, ProductColor.red],
-          gender: Gender.unisex),
-
+        id: uuid.v1(),
+        name: 'Adidas3',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas3.png?alt=media&token=c4489d03-cc19-4b34-a25c-0fabf5828773'
+        ],
+        price: 150,
+        brand: adidas.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas3.png?alt=media&token=c4489d03-cc19-4b34-a25c-0fabf5828773',
+        totalReviews: 3,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.male,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: vansImage,
-          price: 400,
-          brand: vans.name,
-          avgRating: 4.5,
-          thumbnail: vansImage.first,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [
-            ProductColor.white,
-            ProductColor.black,
-          ],
-          gender: Gender.unisex),
+        id: uuid.v1(),
+        name: 'Adidas4',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas4.png?alt=media&token=84f25929-54b4-4e71-bf2a-9a27570fa593'
+        ],
+        price: 290,
+        brand: adidas.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fadidas4.png?alt=media&token=84f25929-54b4-4e71-bf2a-9a27570fa593',
+        totalReviews: 8,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.male,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: rebookImage,
-          totalReviews: 10,
-          price: 500,
-          brand: rebook.name,
-          avgRating: 4.5,
-          thumbnail: rebookImage.first,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.black, ProductColor.red],
-          gender: Gender.unisex),
+        id: uuid.v1(),
+        name: 'Reebok1',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(1).png?alt=media&token=3b19b947-cde7-4f01-a032-52b0285b0d3a'
+        ],
+        price: 80,
+        brand: reebok.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(1).png?alt=media&token=3b19b947-cde7-4f01-a032-52b0285b0d3a',
+        totalReviews: 10,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.female,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: jordanImage,
-          price: 200,
-          brand: jordan.name,
-          avgRating: 4.5,
-          thumbnail: jordanImage.first,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.red],
-          gender: Gender.unisex),
-
+        id: uuid.v1(),
+        name: 'Reebok2',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(2).png?alt=media&token=525502db-c916-4edd-bed0-fc1c59654204'
+        ],
+        price: 240,
+        brand: reebok.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(2).png?alt=media&token=525502db-c916-4edd-bed0-fc1c59654204',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: adidasImage,
-          price: 250,
-          brand: adidas.name,
-          avgRating: 4.5,
-          totalReviews: 10,
-          thumbnail: adidasImage.first,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.black],
-          gender: Gender.unisex),
+        id: uuid.v1(),
+        name: 'Reebok3',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(3).png?alt=media&token=9343d156-6fb7-4c47-bc79-905ebb21e2c0'
+        ],
+        price: 120,
+        brand: reebok.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(3).png?alt=media&token=9343d156-6fb7-4c47-bc79-905ebb21e2c0',
+        totalReviews: 9,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.male,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: pumaImage,
-          price: 300,
-          brand: puma.name,
-          thumbnail: pumaImage.first,
-          avgRating: 4.5,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.white, ProductColor.black, ProductColor.red],
-          gender: Gender.unisex),
-
+        id: uuid.v1(),
+        name: 'Reebok4',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(4).png?alt=media&token=7e16c31a-f732-41ed-bee3-c2742b905f28'
+        ],
+        price: 220,
+        brand: reebok.name,
+        avgRating: 4.2,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fimage-removebg-preview%20(4).png?alt=media&token=7e16c31a-f732-41ed-bee3-c2742b905f28',
+        totalReviews: 13,
+        sizes: [39, 39.5, 40, 40.5, 41],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.male,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: vansImage,
-          price: 400,
-          brand: vans.name,
-          avgRating: 4.5,
-          thumbnail: vansImage.first,
-          totalReviews: 10,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [
-            ProductColor.white,
-            ProductColor.black,
-          ],
-          gender: Gender.unisex),
+        id: uuid.v1(),
+        name: 'Jordan1',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan%201.png?alt=media&token=6baf6c18-1ca2-4350-a309-cb410becb64a'
+        ],
+        price: 1200,
+        brand: jordan.name,
+        avgRating: 4.2,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan%201.png?alt=media&token=6baf6c18-1ca2-4350-a309-cb410becb64a',
+        totalReviews: 2,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
       ProductModel(
-          id: uuid.v1(),
-          name: 'Jordan 1 Retro High Tie Dye',
-          description:
-              "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
-          images: rebookImage,
-          totalReviews: 10,
-          price: 500,
-          brand: rebook.name,
-          avgRating: 4.5,
-          thumbnail: rebookImage.first,
-          sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [ProductColor.black, ProductColor.red],
-          gender: Gender.unisex),
-
-      //
+        id: uuid.v1(),
+        name: 'Jordan2',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan2.png?alt=media&token=4c1bb6f9-4477-4005-9b81-8e4b38cba58b'
+        ],
+        price: 890,
+        brand: jordan.name,
+        avgRating: 4.8,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan2.png?alt=media&token=4c1bb6f9-4477-4005-9b81-8e4b38cba58b',
+        totalReviews: 22,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Jordan3',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan3.png?alt=media&token=d8cd64e5-829c-43fd-a0c9-8a89dacd38ab'
+        ],
+        price: 930,
+        brand: jordan.name,
+        avgRating: 4.5,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan3.png?alt=media&token=d8cd64e5-829c-43fd-a0c9-8a89dacd38ab',
+        totalReviews: 12,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Jordan4',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan4.png?alt=media&token=9986500d-5bc0-4359-a9f6-a5b65a1ff7b8'
+        ],
+        price: 1300,
+        brand: jordan.name,
+        avgRating: 4.2,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fjordan4.png?alt=media&token=9986500d-5bc0-4359-a9f6-a5b65a1ff7b8',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Nike1',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%201.png?alt=media&token=00b644f1-d65b-40a7-8bbe-30c5464ff3d7'
+        ],
+        price: 220,
+        brand: nike.name,
+        avgRating: 4.2,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%201.png?alt=media&token=00b644f1-d65b-40a7-8bbe-30c5464ff3d7',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Nike2',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%202.png?alt=media&token=c0e21296-dd31-491f-a94c-57a569bdbc81'
+        ],
+        price: 140,
+        brand: nike.name,
+        avgRating: 4.4,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%202.png?alt=media&token=c0e21296-dd31-491f-a94c-57a569bdbc81',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Nike3',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%203.png?alt=media&token=0c094225-0555-4fac-89dc-e3f6d275529d'
+        ],
+        price: 320,
+        brand: nike.name,
+        avgRating: 4.6,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike%203.png?alt=media&token=0c094225-0555-4fac-89dc-e3f6d275529d',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
+      ProductModel(
+        id: uuid.v1(),
+        name: 'Nike4',
+        description:
+            "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
+        images: [
+          'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike4.png?alt=media&token=6c764aaa-e82f-4c6c-94ca-50479d4c6118'
+        ],
+        price: 400,
+        brand: nike.name,
+        avgRating: 4.7,
+        thumbnail:
+            'https://firebasestorage.googleapis.com/v0/b/shoesly-8585b.appspot.com/o/NewProducts%2Fnike4.png?alt=media&token=6c764aaa-e82f-4c6c-94ca-50479d4c6118',
+        totalReviews: 16,
+        sizes: [39, 39.5, 40, 41, 42],
+        colors: [ProductColor.white, ProductColor.black],
+        gender: Gender.unisex,
+      ),
     ];
 
     for (var product in products) {
