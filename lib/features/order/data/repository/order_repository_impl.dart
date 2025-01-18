@@ -27,7 +27,7 @@ class OrderRepositoryImpl implements IOrderRepository {
     await Future.wait(order.items.map(
         (e) => db.collection(FirestoreCollection.carts).doc(e.id).delete()));
 
-    return BaseResponse(
+    return const BaseResponse(
         success: true, message: "Order Placed Successfully", data: null);
   }
 }

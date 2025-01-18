@@ -5,4 +5,7 @@ class OrderEvent with _$OrderEvent {
   const factory OrderEvent.started() = _Started;
   const factory OrderEvent.addOrder({required AddOrderRequest order}) =
       _AddOrder;
+
+  factory OrderEvent.payWithEsewa({required AddOrderRequest order}) =
+      _PayWithEsewa;
 }

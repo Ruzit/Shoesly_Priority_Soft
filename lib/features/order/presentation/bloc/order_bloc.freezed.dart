@@ -20,18 +20,21 @@ mixin _$OrderEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(AddOrderRequest order) addOrder,
+    required TResult Function(AddOrderRequest order) payWithEsewa,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(AddOrderRequest order)? addOrder,
+    TResult? Function(AddOrderRequest order)? payWithEsewa,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AddOrderRequest order)? addOrder,
+    TResult Function(AddOrderRequest order)? payWithEsewa,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$OrderEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddOrder value) addOrder,
+    required TResult Function(_PayWithEsewa value) payWithEsewa,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddOrder value)? addOrder,
+    TResult? Function(_PayWithEsewa value)? payWithEsewa,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddOrder value)? addOrder,
+    TResult Function(_PayWithEsewa value)? payWithEsewa,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -92,12 +98,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   const _$StartedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'OrderEvent.started'));
   }
 
   @override
@@ -114,6 +126,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(AddOrderRequest order) addOrder,
+    required TResult Function(AddOrderRequest order) payWithEsewa,
   }) {
     return started();
   }
@@ -123,6 +136,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(AddOrderRequest order)? addOrder,
+    TResult? Function(AddOrderRequest order)? payWithEsewa,
   }) {
     return started?.call();
   }
@@ -132,6 +146,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AddOrderRequest order)? addOrder,
+    TResult Function(AddOrderRequest order)? payWithEsewa,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -145,6 +160,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddOrder value) addOrder,
+    required TResult Function(_PayWithEsewa value) payWithEsewa,
   }) {
     return started(this);
   }
@@ -154,6 +170,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddOrder value)? addOrder,
+    TResult? Function(_PayWithEsewa value)? payWithEsewa,
   }) {
     return started?.call(this);
   }
@@ -163,6 +180,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddOrder value)? addOrder,
+    TResult Function(_PayWithEsewa value)? payWithEsewa,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -209,15 +227,23 @@ class __$$AddOrderImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddOrderImpl implements _AddOrder {
+class _$AddOrderImpl with DiagnosticableTreeMixin implements _AddOrder {
   const _$AddOrderImpl({required this.order});
 
   @override
   final AddOrderRequest order;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderEvent.addOrder(order: $order)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderEvent.addOrder'))
+      ..add(DiagnosticsProperty('order', order));
   }
 
   @override
@@ -242,6 +268,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(AddOrderRequest order) addOrder,
+    required TResult Function(AddOrderRequest order) payWithEsewa,
   }) {
     return addOrder(order);
   }
@@ -251,6 +278,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(AddOrderRequest order)? addOrder,
+    TResult? Function(AddOrderRequest order)? payWithEsewa,
   }) {
     return addOrder?.call(order);
   }
@@ -260,6 +288,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AddOrderRequest order)? addOrder,
+    TResult Function(AddOrderRequest order)? payWithEsewa,
     required TResult orElse(),
   }) {
     if (addOrder != null) {
@@ -273,6 +302,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_AddOrder value) addOrder,
+    required TResult Function(_PayWithEsewa value) payWithEsewa,
   }) {
     return addOrder(this);
   }
@@ -282,6 +312,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_AddOrder value)? addOrder,
+    TResult? Function(_PayWithEsewa value)? payWithEsewa,
   }) {
     return addOrder?.call(this);
   }
@@ -291,6 +322,7 @@ class _$AddOrderImpl implements _AddOrder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_AddOrder value)? addOrder,
+    TResult Function(_PayWithEsewa value)? payWithEsewa,
     required TResult orElse(),
   }) {
     if (addOrder != null) {
@@ -311,6 +343,154 @@ abstract class _AddOrder implements OrderEvent {
 }
 
 /// @nodoc
+abstract class _$$PayWithEsewaImplCopyWith<$Res> {
+  factory _$$PayWithEsewaImplCopyWith(
+          _$PayWithEsewaImpl value, $Res Function(_$PayWithEsewaImpl) then) =
+      __$$PayWithEsewaImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AddOrderRequest order});
+}
+
+/// @nodoc
+class __$$PayWithEsewaImplCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$PayWithEsewaImpl>
+    implements _$$PayWithEsewaImplCopyWith<$Res> {
+  __$$PayWithEsewaImplCopyWithImpl(
+      _$PayWithEsewaImpl _value, $Res Function(_$PayWithEsewaImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? order = null,
+  }) {
+    return _then(_$PayWithEsewaImpl(
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as AddOrderRequest,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PayWithEsewaImpl with DiagnosticableTreeMixin implements _PayWithEsewa {
+  _$PayWithEsewaImpl({required this.order});
+
+  @override
+  final AddOrderRequest order;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderEvent.payWithEsewa(order: $order)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderEvent.payWithEsewa'))
+      ..add(DiagnosticsProperty('order', order));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PayWithEsewaImpl &&
+            (identical(other.order, order) || other.order == order));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, order);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PayWithEsewaImplCopyWith<_$PayWithEsewaImpl> get copyWith =>
+      __$$PayWithEsewaImplCopyWithImpl<_$PayWithEsewaImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(AddOrderRequest order) addOrder,
+    required TResult Function(AddOrderRequest order) payWithEsewa,
+  }) {
+    return payWithEsewa(order);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(AddOrderRequest order)? addOrder,
+    TResult? Function(AddOrderRequest order)? payWithEsewa,
+  }) {
+    return payWithEsewa?.call(order);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(AddOrderRequest order)? addOrder,
+    TResult Function(AddOrderRequest order)? payWithEsewa,
+    required TResult orElse(),
+  }) {
+    if (payWithEsewa != null) {
+      return payWithEsewa(order);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddOrder value) addOrder,
+    required TResult Function(_PayWithEsewa value) payWithEsewa,
+  }) {
+    return payWithEsewa(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddOrder value)? addOrder,
+    TResult? Function(_PayWithEsewa value)? payWithEsewa,
+  }) {
+    return payWithEsewa?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddOrder value)? addOrder,
+    TResult Function(_PayWithEsewa value)? payWithEsewa,
+    required TResult orElse(),
+  }) {
+    if (payWithEsewa != null) {
+      return payWithEsewa(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PayWithEsewa implements OrderEvent {
+  factory _PayWithEsewa({required final AddOrderRequest order}) =
+      _$PayWithEsewaImpl;
+
+  AddOrderRequest get order;
+  @JsonKey(ignore: true)
+  _$$PayWithEsewaImplCopyWith<_$PayWithEsewaImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$OrderState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -318,6 +498,7 @@ mixin _$OrderState {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(String message) success,
+    required TResult Function() paySuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -326,6 +507,7 @@ mixin _$OrderState {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,6 +516,7 @@ mixin _$OrderState {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(String message)? success,
+    TResult Function()? paySuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -343,6 +526,7 @@ mixin _$OrderState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -351,6 +535,7 @@ mixin _$OrderState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -359,6 +544,7 @@ mixin _$OrderState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -400,12 +586,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'OrderState.initial'));
   }
 
   @override
@@ -424,6 +616,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(String message) success,
+    required TResult Function() paySuccess,
   }) {
     return initial();
   }
@@ -435,6 +628,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
   }) {
     return initial?.call();
   }
@@ -446,6 +640,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(String message)? success,
+    TResult Function()? paySuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -461,6 +656,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
   }) {
     return initial(this);
   }
@@ -472,6 +668,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
   }) {
     return initial?.call(this);
   }
@@ -483,6 +680,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -514,12 +712,18 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   const _$LoadingImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'OrderState.loading'));
   }
 
   @override
@@ -538,6 +742,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(String message) success,
+    required TResult Function() paySuccess,
   }) {
     return loading();
   }
@@ -549,6 +754,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
   }) {
     return loading?.call();
   }
@@ -560,6 +766,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(String message)? success,
+    TResult Function()? paySuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -575,6 +782,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
   }) {
     return loading(this);
   }
@@ -586,6 +794,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
   }) {
     return loading?.call(this);
   }
@@ -597,6 +806,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -643,15 +853,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
+class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   const _$ErrorImpl({required this.errorMsg});
 
   @override
   final String errorMsg;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderState.error(errorMsg: $errorMsg)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderState.error'))
+      ..add(DiagnosticsProperty('errorMsg', errorMsg));
   }
 
   @override
@@ -679,6 +897,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(String message) success,
+    required TResult Function() paySuccess,
   }) {
     return error(errorMsg);
   }
@@ -690,6 +909,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
   }) {
     return error?.call(errorMsg);
   }
@@ -701,6 +921,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(String message)? success,
+    TResult Function()? paySuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -716,6 +937,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
   }) {
     return error(this);
   }
@@ -727,6 +949,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
   }) {
     return error?.call(this);
   }
@@ -738,6 +961,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -789,15 +1013,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
+class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   const _$SuccessImpl({required this.message});
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'OrderState.success(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderState.success'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -824,6 +1056,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function(String errorMsg) error,
     required TResult Function(String message) success,
+    required TResult Function() paySuccess,
   }) {
     return success(message);
   }
@@ -835,6 +1068,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function(String errorMsg)? error,
     TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
   }) {
     return success?.call(message);
   }
@@ -846,6 +1080,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function(String errorMsg)? error,
     TResult Function(String message)? success,
+    TResult Function()? paySuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -861,6 +1096,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
   }) {
     return success(this);
   }
@@ -872,6 +1108,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
   }) {
     return success?.call(this);
   }
@@ -883,6 +1120,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -899,4 +1137,130 @@ abstract class _Success implements OrderState {
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PaySuccessImplCopyWith<$Res> {
+  factory _$$PaySuccessImplCopyWith(
+          _$PaySuccessImpl value, $Res Function(_$PaySuccessImpl) then) =
+      __$$PaySuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PaySuccessImplCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$PaySuccessImpl>
+    implements _$$PaySuccessImplCopyWith<$Res> {
+  __$$PaySuccessImplCopyWithImpl(
+      _$PaySuccessImpl _value, $Res Function(_$PaySuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PaySuccessImpl with DiagnosticableTreeMixin implements _PaySuccess {
+  const _$PaySuccessImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.paySuccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'OrderState.paySuccess'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PaySuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errorMsg) error,
+    required TResult Function(String message) success,
+    required TResult Function() paySuccess,
+  }) {
+    return paySuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errorMsg)? error,
+    TResult? Function(String message)? success,
+    TResult? Function()? paySuccess,
+  }) {
+    return paySuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errorMsg)? error,
+    TResult Function(String message)? success,
+    TResult Function()? paySuccess,
+    required TResult orElse(),
+  }) {
+    if (paySuccess != null) {
+      return paySuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_PaySuccess value) paySuccess,
+  }) {
+    return paySuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_PaySuccess value)? paySuccess,
+  }) {
+    return paySuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_PaySuccess value)? paySuccess,
+    required TResult orElse(),
+  }) {
+    if (paySuccess != null) {
+      return paySuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PaySuccess implements OrderState {
+  const factory _PaySuccess() = _$PaySuccessImpl;
 }

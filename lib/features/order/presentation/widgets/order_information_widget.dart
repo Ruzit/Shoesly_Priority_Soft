@@ -30,7 +30,7 @@ class OrderInformationWidget extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.w600),
           ).padding(bottom: 8),
           subtitle: Text(
-            "Credit Card",
+            "Esewa",
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: colorDarkGrey,
                 ),
@@ -59,7 +59,7 @@ class OrderInformationWidget extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.w600),
           ).padding(bottom: 8),
           subtitle: Text(
-            "Semarang, Indonesia",
+            "Kathmandu, Nepal",
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: colorDarkGrey,
                 ),

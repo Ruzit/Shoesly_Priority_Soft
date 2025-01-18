@@ -55,8 +55,23 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
                 context.router.pushAndPopUntil(const DashboardRouter(),
                     predicate: (f) => false);
               });
+
+              _orderBloc.add(
+                OrderEvent.payWithEsewa(
+                  order: AddOrderRequest(
+                    items: widget.cartItems,
+                    subTotal: widget.cartItems.total,
+                    shippingFee: shippingFee,
+                    shippingAddress:
+                        ShippingAddress(address: "Thimi-06, Bhaktapur, Nepal"),
+                    total: widget.cartItems.total + shippingFee,
+                    paymentMethod: PaymentMethod.cash,
+                  ),
+                ),
+              );
             },
             error: EasyLoading.showError,
+            paySuccess: () {},
           );
         },
         child: AppBaseView(

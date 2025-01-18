@@ -177,6 +177,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/jordan6.png
   AssetGenImage get jordan6 => const AssetGenImage('assets/images/jordan6.png');
 
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         adidas1,
@@ -187,7 +190,8 @@ class $AssetsImagesGen {
         jordan3,
         jordan4,
         jordan5,
-        jordan6
+        jordan6,
+        logo
       ];
 }
 

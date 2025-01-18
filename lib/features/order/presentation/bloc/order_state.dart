@@ -6,4 +6,5 @@ class OrderState with _$OrderState {
   const factory OrderState.loading() = _Loading;
   const factory OrderState.error({required String errorMsg}) = _Error;
   const factory OrderState.success({required String message}) = _Success;
+  const factory OrderState.paySuccess() = _PaySuccess;
 }

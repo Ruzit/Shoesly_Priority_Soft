@@ -1,3 +1,8 @@
+import 'package:esewa_flutter_sdk/esewa_config.dart' as esewa;
+import 'package:esewa_flutter_sdk/esewa_flutter_sdk.dart';
+import 'package:esewa_flutter_sdk/esewa_payment.dart';
+import 'package:esewa_flutter_sdk/esewa_payment_success_result.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -23,6 +28,38 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               emit(OrderState.success(message: result.message));
             } else {
               emit(OrderState.error(errorMsg: result.message));
+            }
+          },
+          payWithEsewa: (order) {
+            try {
+              EsewaFlutterSdk.initPayment(
+                esewaConfig: esewa.EsewaConfig(
+                  environment: esewa.Environment.test,
+                  clientId:
+                      'JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R',
+                  secretId: 'BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ==',
+                ),
+                esewaPayment: EsewaPayment(
+                    productId: "1d71jd81",
+                    productName: order.items.first.product.name,
+                    productPrice: order.total.toString(),
+                    callbackUrl: ''),
+                onPaymentSuccess: (EsewaPaymentSuccessResult data) {
+                  debugPrint(":::SUCCESS::: => $data");
+                  emit(const OrderState.paySuccess());
+                },
+                onPaymentFailure: (data) {
+                  debugPrint(":::FAILURE::: => $data");
+                  emit(const OrderState.error(errorMsg: "Payment Failed"));
+                },
+                onPaymentCancellation: (data) {
+                  debugPrint(":::CANCELLATION::: => $data");
+                  emit(const OrderState.error(errorMsg: "Payment Cancelled"));
+                },
+              );
+            } on Exception catch (e) {
+              debugPrint("EXCEPTION : ${e.toString()}");
+              emit(OrderState.error(errorMsg: e.toString()));
             }
           },
         );
